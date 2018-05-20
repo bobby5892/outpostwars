@@ -27,6 +27,7 @@ D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\Microsoft.Ow
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\Microsoft.Owin.Security.Twitter.dll
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\Microsoft.Web.Infrastructure.dll
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\Newtonsoft.Json.dll
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\nunit.framework.dll
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\Owin.dll
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\System.Net.Http.Formatting.dll
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\System.Web.Helpers.dll
@@ -41,6 +42,8 @@ D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\System.Web.W
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\System.Web.WebPages.Razor.dll
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\WebGrease.dll
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\nunit.framework.pdb
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\nunit.framework.xml
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\Newtonsoft.Json.xml
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\System.Net.Http.Formatting.xml
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\System.Web.Helpers.xml
@@ -73,9 +76,7 @@ D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\Microsoft.AI
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\Microsoft.AI.WindowsServer.xml
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\Microsoft.AI.Web.xml
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\obj\Debug\outpostwars.csprojResolveAssemblyReference.cache
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\obj\Debug\outpostwars.csproj.CoreCompileInputs.cache
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\obj\Debug\outpostwars.dll
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\obj\Debug\outpostwars.pdb
-D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\nunit.framework.dll
-D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\nunit.framework.pdb
-D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwars\bin\nunit.framework.xml

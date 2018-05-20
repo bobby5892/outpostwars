@@ -12,20 +12,23 @@ namespace outpostwarsClassesTests
     public class GameTests
     {
         Game game;
-
+        
         [SetUp]
-        void setupTests()
+        public void SetUpAllTests()
+        {
+
+        }
+        [Test]
+        public void TestVersionConstructor()
         {
             game = new Game("Test");
-        }
-        [Test]
-        void TestVersionConstructor()
-        {
             Assert.AreEqual(game.version, "Test");
         }
+
         [Test]
-        void TestDefaults()
+        public void TestDefaults()
         {
+            game = new Game("Test");
             Assert.False(game.databaseServerAvailable);
             Assert.False(game.loginServerAvailable);
         }

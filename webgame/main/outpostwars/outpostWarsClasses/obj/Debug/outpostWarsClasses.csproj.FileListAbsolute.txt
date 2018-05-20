@@ -1,8 +1,14 @@
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\bin\Debug\outpostWarsClasses.dll
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\bin\Debug\outpostWarsClasses.pdb
-D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\obj\Debug\outpostWarsClasses.csproj.CoreCompileInputs.cache
-D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\obj\Debug\outpostWarsClasses.dll
-D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\obj\Debug\outpostWarsClasses.pdb
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\bin\Debug\nunit.framework.dll
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\bin\Debug\nunit.framework.pdb
 D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\bin\Debug\nunit.framework.xml
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\obj\Debug\outpostWarsClasses.csproj.CoreCompileInputs.cache
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\obj\Debug\outpostWarsClasses.dll
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\obj\Debug\outpostWarsClasses.pdb
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\bin\Debug\outpostWarsClasses.dll.config
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\bin\Debug\EntityFramework.dll
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\bin\Debug\EntityFramework.SqlServer.dll
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\bin\Debug\EntityFramework.xml
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\bin\Debug\EntityFramework.SqlServer.xml
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\obj\Debug\outpostWarsClasses.csprojResolveAssemblyReference.cache
