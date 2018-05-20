@@ -1,0 +1,8 @@
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\bin\Debug\outpostWarsClasses.dll
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\bin\Debug\outpostWarsClasses.pdb
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\obj\Debug\outpostWarsClasses.csproj.CoreCompileInputs.cache
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\obj\Debug\outpostWarsClasses.dll
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\obj\Debug\outpostWarsClasses.pdb
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\bin\Debug\nunit.framework.dll
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\bin\Debug\nunit.framework.pdb
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostWarsClasses\bin\Debug\nunit.framework.xml

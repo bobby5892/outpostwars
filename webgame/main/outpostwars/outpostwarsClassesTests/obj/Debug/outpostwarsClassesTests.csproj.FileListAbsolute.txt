@@ -1,0 +1,11 @@
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwarsClassesTests\bin\Debug\outpostwarsClassesTests.dll
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwarsClassesTests\bin\Debug\outpostwarsClassesTests.pdb
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwarsClassesTests\bin\Debug\nunit.framework.dll
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwarsClassesTests\bin\Debug\outpostWarsClasses.dll
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwarsClassesTests\bin\Debug\outpostWarsClasses.pdb
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwarsClassesTests\bin\Debug\nunit.framework.pdb
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwarsClassesTests\bin\Debug\nunit.framework.xml
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwarsClassesTests\obj\Debug\outpostwarsClassesTests.csprojResolveAssemblyReference.cache
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwarsClassesTests\obj\Debug\outpostwarsClassesTests.csproj.CoreCompileInputs.cache
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwarsClassesTests\obj\Debug\outpostwarsClassesTests.dll
+D:\outpostWars\outpostwars\webgame\main\outpostwars\outpostwarsClassesTests\obj\Debug\outpostwarsClassesTests.pdb
