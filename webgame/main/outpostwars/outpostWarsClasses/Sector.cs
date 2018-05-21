@@ -11,6 +11,6 @@ namespace outpostWarsClasses
     /// </summary>
     public class Sector
     {
-        id
+        
     }
 }
