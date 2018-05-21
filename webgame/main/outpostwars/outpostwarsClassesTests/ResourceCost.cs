@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using outpostwarsdb;
-namespace outpostWarsClasses
-{
-    public class Player  : outpostwarsdb.Player
-    {
-     
 
+namespace outpostwarsClassesTests
+{
+    class ResourceCost
+    {
     }
 }

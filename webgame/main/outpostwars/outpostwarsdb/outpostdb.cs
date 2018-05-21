@@ -5,10 +5,10 @@ namespace outpostwarsdb
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class test : DbContext
+    public partial class outpostdb : DbContext
     {
-        public test()
-            : base("name=test")
+        public outpostdb()
+            : base("name=outpostdb")
         {
         }
 

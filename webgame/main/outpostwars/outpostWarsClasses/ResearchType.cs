@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 using outpostwarsdb;
 namespace outpostWarsClasses
 {
-    public class Player  : outpostwarsdb.Player
+    public class ResearchType : outpostwarsdb.ResearchType
     {
-     
-
     }
 }

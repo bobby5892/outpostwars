@@ -56,7 +56,6 @@
     <Compile Include="AllianceWallet.cs" />
     <Compile Include="Auth.cs" />
     <Compile Include="BattleEvent.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Fleet.cs" />
     <Compile Include="fleetBuilding.cs" />
     <Compile Include="GameSetting.cs" />
@@ -87,7 +86,7 @@
     <Compile Include="StationUpgradesCost.cs" />
     <Compile Include="StatType.cs" />
     <Compile Include="sysdiagram.cs" />
-    <Compile Include="test.cs" />
+    <Compile Include="outpostdb.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

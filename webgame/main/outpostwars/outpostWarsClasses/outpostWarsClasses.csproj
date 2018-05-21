@@ -53,16 +53,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alliance.cs" />
+    <Compile Include="AllianceLedger.cs" />
+    <Compile Include="AllianceMember.cs" />
+    <Compile Include="AllianceStore.cs" />
+    <Compile Include="AllianceWallet.cs" />
+    <Compile Include="Auth.cs" />
+    <Compile Include="BattleEvent.cs" />
     <Compile Include="CommonTools.cs" />
-    <Compile Include="Game.cs" />
+    <Compile Include="Fleet.cs" />
+    <Compile Include="fleetBuilding.cs" />
+    <Compile Include="GameSetting.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="Login.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="Node.cs" />
+    <Compile Include="Outpost.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="PlayerBuff.cs" />
+    <Compile Include="PlayerResource.cs" />
+    <Compile Include="PlayerSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResearchCompleted.cs" />
+    <Compile Include="ResearchCost.cs" />
+    <Compile Include="ResearchTree.cs" />
+    <Compile Include="ResearchType.cs" />
     <Compile Include="Sector.cs" />
-    <Compile Include="Settings.cs" />
+    <Compile Include="Ship.cs" />
+    <Compile Include="ShipCost.cs" />
+    <Compile Include="ShipsLostLineItem.cs" />
+    <Compile Include="ShipsRemainingLineItem.cs" />
+    <Compile Include="Station.cs" />
+    <Compile Include="StationType.cs" />
+    <Compile Include="StationUpgradesCost.cs" />
+    <Compile Include="StatType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\outpostwarsdb\outpostwarsdb.csproj">
+      <Project>{ad80de62-e378-4088-8c8d-31fa729f61da}</Project>
+      <Name>outpostwarsdb</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
