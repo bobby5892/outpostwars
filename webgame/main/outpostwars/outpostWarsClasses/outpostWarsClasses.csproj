@@ -96,7 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\outpostwarsdb\outpostwarsdb.csproj">
-      <Project>{ad80de62-e378-4088-8c8d-31fa729f61da}</Project>
+      <Project>{b516452d-2148-412a-aeed-cb0574409857}</Project>
       <Name>outpostwarsdb</Name>
     </ProjectReference>
   </ItemGroup>

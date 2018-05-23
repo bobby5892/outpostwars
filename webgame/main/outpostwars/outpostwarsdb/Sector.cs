@@ -33,6 +33,8 @@ namespace outpostwarsdb
         [Column(TypeName = "date")]
         public DateTime createdTimestamp { get; set; }
 
+        public bool allowPayToWinStore { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Fleet> Fleets { get; set; }
 

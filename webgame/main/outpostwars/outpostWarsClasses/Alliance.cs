@@ -8,5 +8,6 @@ namespace outpostWarsClasses
 {
     public class Alliance : outpostwarsdb.Alliance
     {
+
     }
 }

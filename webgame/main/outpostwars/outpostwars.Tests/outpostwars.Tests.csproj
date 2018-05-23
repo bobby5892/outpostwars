@@ -113,10 +113,6 @@
       <Project>{d3cc1cec-c596-4090-90ac-534bb57e5b83}</Project>
       <Name>outpostwarsClassesTests</Name>
     </ProjectReference>
-    <ProjectReference Include="..\outpostwars\outpostwars.csproj">
-      <Project>{D03C7CAE-29FF-4B4B-A485-0EEF8C53BB90}</Project>
-      <Name>outpostwars</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

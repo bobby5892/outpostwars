@@ -1,0 +1,12 @@
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsapi\bin\Debug\netcoreapp2.0\outpostwarsapi.deps.json
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsapi\bin\Debug\netcoreapp2.0\outpostwarsapi.runtimeconfig.json
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsapi\bin\Debug\netcoreapp2.0\outpostwarsapi.runtimeconfig.dev.json
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsapi\bin\Debug\netcoreapp2.0\outpostwarsapi.dll
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsapi\bin\Debug\netcoreapp2.0\outpostwarsapi.pdb
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsapi\obj\Debug\netcoreapp2.0\outpostwarsapi.csprojResolveAssemblyReference.cache
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsapi\obj\Debug\netcoreapp2.0\outpostwarsapi.csproj.CoreCompileInputs.cache
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsapi\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsapi\obj\Debug\netcoreapp2.0\outpostwarsapi.AssemblyInfoInputs.cache
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsapi\obj\Debug\netcoreapp2.0\outpostwarsapi.AssemblyInfo.cs
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsapi\obj\Debug\netcoreapp2.0\outpostwarsapi.dll
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsapi\obj\Debug\netcoreapp2.0\outpostwarsapi.pdb
