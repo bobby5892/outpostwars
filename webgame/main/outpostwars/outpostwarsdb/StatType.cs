@@ -26,6 +26,8 @@ namespace outpostwarsdb
 
         public bool forOutpost { get; set; }
 
+        public int? typeID { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PlayerBuff> PlayerBuffs { get; set; }
     }

@@ -18,7 +18,7 @@ namespace outpostwarsdb
         public virtual DbSet<AllianceWallet> AllianceWallets { get; set; }
         public virtual DbSet<Auth> Auths { get; set; }
         public virtual DbSet<BattleEvent> BattleEvents { get; set; }
-        public virtual DbSet<fleetBuilding> fleetBuildings { get; set; }
+        public virtual DbSet<FleetBuilding> FleetBuildings { get; set; }
         public virtual DbSet<Fleet> Fleets { get; set; }
         public virtual DbSet<Inventory> Inventories { get; set; }
         public virtual DbSet<Item> Items { get; set; }
@@ -46,6 +46,8 @@ namespace outpostwarsdb
         public virtual DbSet<StatType> StatTypes { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<AllianceStore> AllianceStores { get; set; }
+        public virtual DbSet<BannedIP> BannedIPs { get; set; }
+        public virtual DbSet<BannedUserAgent> BannedUserAgents { get; set; }
         public virtual DbSet<GameSetting> GameSettings { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
 
@@ -228,7 +230,7 @@ namespace outpostwarsdb
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Player>()
-                .HasMany(e => e.fleetBuildings)
+                .HasMany(e => e.FleetBuildings)
                 .WithRequired(e => e.Player)
                 .HasForeignKey(e => e.idPlayer)
                 .WillCascadeOnDelete(false);
@@ -333,7 +335,7 @@ namespace outpostwarsdb
                 .IsUnicode(false);
 
             modelBuilder.Entity<Ship>()
-                .HasMany(e => e.fleetBuildings)
+                .HasMany(e => e.FleetBuildings)
                 .WithRequired(e => e.Ship)
                 .WillCascadeOnDelete(false);
 
@@ -388,6 +390,10 @@ namespace outpostwarsdb
                 .WithRequired(e => e.StatType)
                 .HasForeignKey(e => e.statID)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<BannedUserAgent>()
+                .Property(e => e.userAgent)
+                .IsUnicode(false);
 
             modelBuilder.Entity<GameSetting>()
                 .Property(e => e.baseMovementSpeed)

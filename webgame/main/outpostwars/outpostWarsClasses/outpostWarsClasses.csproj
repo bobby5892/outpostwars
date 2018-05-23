@@ -94,12 +94,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\outpostwarsdb\outpostwarsdb.csproj">
-      <Project>{b516452d-2148-412a-aeed-cb0574409857}</Project>
-      <Name>outpostwarsdb</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

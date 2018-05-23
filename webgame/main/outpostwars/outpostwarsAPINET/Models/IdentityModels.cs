@@ -13,6 +13,18 @@ namespace outpostwarsAPINET.Models
     // You can add User data for the user by adding more properties to your User class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        // Added Profile Type will be Player or Admin
+        public string ProfileType { get; set; }
+        // This will match the user id for the game in other database
+       
+        public int ProfileID { get; set; }
+
+        // Set te default
+        public ApplicationUser()
+        {
+            this.ProfileType = "Player";
+           
+        }
         public ClaimsIdentity GenerateUserIdentity(ApplicationUserManager manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

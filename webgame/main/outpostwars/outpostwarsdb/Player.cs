@@ -15,7 +15,7 @@ namespace outpostwarsdb
             AllianceLedgers = new HashSet<AllianceLedger>();
             AllianceMembers = new HashSet<AllianceMember>();
             Auths = new HashSet<Auth>();
-            fleetBuildings = new HashSet<fleetBuilding>();
+            FleetBuildings = new HashSet<FleetBuilding>();
             Fleets = new HashSet<Fleet>();
             Inventories = new HashSet<Inventory>();
             Logins = new HashSet<Login>();
@@ -94,6 +94,10 @@ namespace outpostwarsdb
 
         public bool canLoginDuringMaintnence { get; set; }
 
+        [Required]
+        [StringLength(255)]
+        public string CLSID { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AllianceLedger> AllianceLedgers { get; set; }
 
@@ -104,7 +108,7 @@ namespace outpostwarsdb
         public virtual ICollection<Auth> Auths { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<fleetBuilding> fleetBuildings { get; set; }
+        public virtual ICollection<FleetBuilding> FleetBuildings { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Fleet> Fleets { get; set; }

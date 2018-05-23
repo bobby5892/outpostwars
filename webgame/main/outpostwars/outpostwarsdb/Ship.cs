@@ -11,7 +11,7 @@ namespace outpostwarsdb
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Ship()
         {
-            fleetBuildings = new HashSet<fleetBuilding>();
+            FleetBuildings = new HashSet<FleetBuilding>();
             Fleets = new HashSet<Fleet>();
             ShipCosts = new HashSet<ShipCost>();
             ShipsLostLineItems = new HashSet<ShipsLostLineItem>();
@@ -30,14 +30,8 @@ namespace outpostwarsdb
         [StringLength(50)]
         public string worldMapAnimationImage { get; set; }
 
-        public int baseAttack { get; set; }
-
-        public int baseDefense { get; set; }
-
-        public int baseCargoHold { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<fleetBuilding> fleetBuildings { get; set; }
+        public virtual ICollection<FleetBuilding> FleetBuildings { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Fleet> Fleets { get; set; }

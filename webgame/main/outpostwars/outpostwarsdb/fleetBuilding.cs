@@ -6,8 +6,8 @@ namespace outpostwarsdb
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("fleetBuilding")]
-    public partial class fleetBuilding
+    [Table("FleetBuilding")]
+    public partial class FleetBuilding
     {
         public int id { get; set; }
 
