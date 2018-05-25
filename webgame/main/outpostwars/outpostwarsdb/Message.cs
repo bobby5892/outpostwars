@@ -45,5 +45,7 @@ namespace outpostwarsdb
         [Key]
         [Column(Order = 7)]
         public DateTime timestamp { get; set; }
+
+        public bool? isRead { get; set; }
     }
 }

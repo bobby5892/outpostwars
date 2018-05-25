@@ -67,7 +67,8 @@ namespace outpostwarsdb
 
         public int allianceID { get; set; }
 
-        public int? sourceClickID { get; set; }
+        [StringLength(64)]
+        public string sourceClickID { get; set; }
 
         [StringLength(20)]
         public string sourceSub1 { get; set; }

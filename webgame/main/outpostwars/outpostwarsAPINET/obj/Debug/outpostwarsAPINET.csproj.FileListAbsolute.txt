@@ -115,6 +115,11 @@ C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsAPINET\ob
 C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsAPINET\obj\Debug\outpostwarsAPINET.csproj.CopyComplete
 C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsAPINET\obj\Debug\outpostwarsAPINET.dll
 C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsAPINET\obj\Debug\outpostwarsAPINET.pdb
-C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsAPINET\obj\Debug\outpostwarsAPINET.Migrations.InitialCreate.resources
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsAPINET\bin\outpostWarsClasses.dll
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsAPINET\bin\outpostwarsdb.dll
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsAPINET\bin\outpostWarsClasses.pdb
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsAPINET\bin\outpostWarsClasses.dll.config
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsAPINET\bin\outpostwarsdb.pdb
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsAPINET\bin\outpostwarsdb.dll.config
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsAPINET\obj\Debug\outpostwarsAPINET.Migrations.init.resources
 C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsAPINET\obj\Debug\outpostwarsAPINET.csproj.GenerateResource.cache
-C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsAPINET\obj\Debug\outpostwarsAPINET.Migrations.ProfileType.resources

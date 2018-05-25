@@ -17,7 +17,7 @@ namespace outpostwarsAPINET.Models
         public string ProfileType { get; set; }
         // This will match the user id for the game in other database
        
-        public int ProfileID { get; set; }
+      
 
         // Set te default
         public ApplicationUser()

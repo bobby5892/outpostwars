@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "outpostwarsClassesTests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "outpostwarsAPINET", "outpostwarsAPINET\outpostwarsAPINET.csproj", "{203C5D0B-A93E-477C-A859-5DF98F772F74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "outpostwarsdb", "outpostwarsdb\outpostwarsdb.csproj", "{C3165E8A-D269-409E-98C1-38E941DF9AFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "outpostwarsdb", "outpostwarsdb\outpostwarsdb.csproj", "{2EF37E97-2468-4EDD-9B34-2825B05976A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{203C5D0B-A93E-477C-A859-5DF98F772F74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{203C5D0B-A93E-477C-A859-5DF98F772F74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{203C5D0B-A93E-477C-A859-5DF98F772F74}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C3165E8A-D269-409E-98C1-38E941DF9AFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3165E8A-D269-409E-98C1-38E941DF9AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3165E8A-D269-409E-98C1-38E941DF9AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3165E8A-D269-409E-98C1-38E941DF9AFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EF37E97-2468-4EDD-9B34-2825B05976A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EF37E97-2468-4EDD-9B34-2825B05976A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EF37E97-2468-4EDD-9B34-2825B05976A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EF37E97-2468-4EDD-9B34-2825B05976A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C3165E8A-D269-409E-98C1-38E941DF9AFB}</ProjectGuid>
+    <ProjectGuid>{2EF37E97-2468-4EDD-9B34-2825B05976A4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>outpostwarsdb</RootNamespace>
@@ -69,7 +69,7 @@
     <Compile Include="Message.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Outpost.cs" />
-    <Compile Include="outpostwarsdb.cs" />
+    <Compile Include="outpostwarsEntities.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerBuff.cs" />
     <Compile Include="PlayerResource.cs" />

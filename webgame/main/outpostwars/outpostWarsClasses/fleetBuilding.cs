@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using outpostwarsdb;
 namespace outpostWarsClasses
 {
-    public class fleetBuilding : outpostwarsdb.fleetBuilding
+    public class fleetBuilding : outpostwarsdb.FleetBuilding
     {
     }
 }

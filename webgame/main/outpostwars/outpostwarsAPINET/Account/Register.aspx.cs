@@ -7,6 +7,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using outpostwarsAPINET.Models;
 
+using outpostWarsClasses;
+using outpostwarsdb;
 namespace outpostwarsAPINET.Account
 {
     public partial class Register : Page
@@ -20,10 +22,20 @@ namespace outpostwarsAPINET.Account
             if (result.Succeeded)
             {
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                //string code = manager.GenerateEmailConfirmationToken(user.Id);
-                //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
-                //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
 
+                /* Send Confirmation Email */
+                string code = manager.GenerateEmailConfirmationToken(user.Id);
+                string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
+                manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
+
+                /* Create User Account */
+                outpostWarsClasses.Player newP = new outpostWarsClasses.Player();
+                newP.createPlayer(user.Id, user.Email, "", "", "", "", "", "");
+             
+
+
+
+              
                 signInManager.SignIn( user, isPersistent: false, rememberBrowser: true);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }

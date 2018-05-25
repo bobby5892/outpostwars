@@ -8,7 +8,7 @@
     <ProjectGuid>{68591E98-F27C-4350-AD88-37B53FCABE96}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>outpostWarsClasses</RootNamespace>
+    <RootNamespace>outpostwars</RootNamespace>
     <AssemblyName>outpostWarsClasses</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -62,7 +62,7 @@
     <Compile Include="BattleEvent.cs" />
     <Compile Include="CommonTools.cs" />
     <Compile Include="Fleet.cs" />
-    <Compile Include="fleetBuilding.cs" />
+    <Compile Include="FleetBuilding.cs" />
     <Compile Include="GameSetting.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Item.cs" />
@@ -93,6 +93,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\outpostwarsdb\outpostwarsdb.csproj">
+      <Project>{2ef37e97-2468-4edd-9b34-2825b05976a4}</Project>
+      <Name>outpostwarsdb</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

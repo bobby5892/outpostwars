@@ -375,13 +375,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805232142411_InitialCreate.cs" />
-    <Compile Include="Migrations\201805232142411_InitialCreate.Designer.cs">
-      <DependentUpon>201805232142411_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805232156208_ProfileType.cs" />
-    <Compile Include="Migrations\201805232156208_ProfileType.Designer.cs">
-      <DependentUpon>201805232156208_ProfileType.cs</DependentUpon>
+    <Compile Include="Migrations\201805250307582_init.cs" />
+    <Compile Include="Migrations\201805250307582_init.Designer.cs">
+      <DependentUpon>201805250307582_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -423,11 +419,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805232142411_InitialCreate.resx">
-      <DependentUpon>201805232142411_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805232156208_ProfileType.resx">
-      <DependentUpon>201805232156208_ProfileType.cs</DependentUpon>
+    <ProjectReference Include="..\outpostWarsClasses\outpostWarsClasses.csproj">
+      <Project>{68591e98-f27c-4350-ad88-37b53fcabe96}</Project>
+      <Name>outpostWarsClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\outpostwarsdb\outpostwarsdb.csproj">
+      <Project>{2ef37e97-2468-4edd-9b34-2825b05976a4}</Project>
+      <Name>outpostwarsdb</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201805250307582_init.resx">
+      <DependentUpon>201805250307582_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
