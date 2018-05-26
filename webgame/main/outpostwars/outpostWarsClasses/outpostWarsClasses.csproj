@@ -8,7 +8,7 @@
     <ProjectGuid>{68591E98-F27C-4350-AD88-37B53FCABE96}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>outpostwars</RootNamespace>
+    <RootNamespace>outpostWarsClasses</RootNamespace>
     <AssemblyName>outpostWarsClasses</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -53,42 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alliance.cs" />
-    <Compile Include="AllianceLedger.cs" />
-    <Compile Include="AllianceMember.cs" />
-    <Compile Include="AllianceStore.cs" />
-    <Compile Include="AllianceWallet.cs" />
-    <Compile Include="Auth.cs" />
-    <Compile Include="BattleEvent.cs" />
     <Compile Include="CommonTools.cs" />
-    <Compile Include="Fleet.cs" />
-    <Compile Include="FleetBuilding.cs" />
-    <Compile Include="GameSetting.cs" />
-    <Compile Include="Inventory.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="Log.cs" />
-    <Compile Include="Login.cs" />
-    <Compile Include="Message.cs" />
-    <Compile Include="Node.cs" />
-    <Compile Include="Outpost.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="PlayerBuff.cs" />
-    <Compile Include="PlayerResource.cs" />
-    <Compile Include="PlayerSetting.cs" />
+    <Compile Include="Create.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResearchCompleted.cs" />
-    <Compile Include="ResearchCost.cs" />
-    <Compile Include="ResearchTree.cs" />
-    <Compile Include="ResearchType.cs" />
-    <Compile Include="Sector.cs" />
-    <Compile Include="Ship.cs" />
-    <Compile Include="ShipCost.cs" />
-    <Compile Include="ShipsLostLineItem.cs" />
-    <Compile Include="ShipsRemainingLineItem.cs" />
-    <Compile Include="Station.cs" />
-    <Compile Include="StationType.cs" />
-    <Compile Include="StationUpgradesCost.cs" />
-    <Compile Include="StatType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

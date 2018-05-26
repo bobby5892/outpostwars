@@ -31,20 +31,16 @@ namespace outpostwarsdb
         public string characterName { get; set; }
 
         [Required]
-        [StringLength(10)]
+        [StringLength(15)]
         public string firstName { get; set; }
 
         [Required]
-        [StringLength(10)]
+        [StringLength(15)]
         public string lastName { get; set; }
 
         [Required]
         [StringLength(256)]
         public string email { get; set; }
-
-        [Required]
-        [StringLength(13)]
-        public string userName { get; set; }
 
         [StringLength(64)]
         public string passwordResetHash { get; set; }
@@ -86,10 +82,6 @@ namespace outpostwarsdb
         public string sourceSub5 { get; set; }
 
         public bool firstLoginComplete { get; set; }
-
-        [Required]
-        [StringLength(10)]
-        public string salt { get; set; }
 
         public int sectorID { get; set; }
 

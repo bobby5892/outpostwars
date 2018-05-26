@@ -29,18 +29,18 @@ namespace outpostwarsAPINET.Account
                 manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
 
                 /* Create User Account */
-                outpostWarsClasses.Player newP = new outpostWarsClasses.Player();
-                newP.createPlayer(user.Id, user.Email, "", "", "", "", "", "");
-             
-
-
-
+               Create create = new Create();
+               Player newPlayer = new Player();
+                newPlayer.CLSID = user.Id;
+                newPlayer.email = user.Email;
+               create.CreatePlayer(newPlayer);
               
                 signInManager.SignIn( user, isPersistent: false, rememberBrowser: true);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
             else 
             {
+                
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
         }

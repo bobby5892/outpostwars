@@ -18,6 +18,7 @@ namespace outpostwarsdb
         public virtual DbSet<AllianceWallet> AllianceWallets { get; set; }
         public virtual DbSet<Auth> Auths { get; set; }
         public virtual DbSet<BattleEvent> BattleEvents { get; set; }
+        public virtual DbSet<CriticalError> CriticalErrors { get; set; }
         public virtual DbSet<FleetBuilding> FleetBuildings { get; set; }
         public virtual DbSet<Fleet> Fleets { get; set; }
         public virtual DbSet<Inventory> Inventories { get; set; }
@@ -113,6 +114,38 @@ namespace outpostwarsdb
                 .HasForeignKey(e => e.battleID)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<CriticalError>()
+                .Property(e => e.Data)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CriticalError>()
+                .Property(e => e.EntityValidationErrors)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CriticalError>()
+                .Property(e => e.HelpLink)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CriticalError>()
+                .Property(e => e.InnerException)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CriticalError>()
+                .Property(e => e.Message)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CriticalError>()
+                .Property(e => e.Source)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CriticalError>()
+                .Property(e => e.StackTrace)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CriticalError>()
+                .Property(e => e.TargetSite)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Item>()
                 .Property(e => e.name)
                 .IsUnicode(false);
@@ -174,10 +207,6 @@ namespace outpostwarsdb
                 .IsUnicode(false);
 
             modelBuilder.Entity<Player>()
-                .Property(e => e.userName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Player>()
                 .Property(e => e.passwordResetHash)
                 .IsUnicode(false);
 
@@ -211,10 +240,6 @@ namespace outpostwarsdb
 
             modelBuilder.Entity<Player>()
                 .Property(e => e.sourceSub5)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Player>()
-                .Property(e => e.salt)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Player>()

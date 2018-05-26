@@ -10,3 +10,6 @@ C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsdb\obj\De
 C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsdb\obj\Debug\outpostwarsdb.csproj.CopyComplete
 C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsdb\obj\Debug\outpostwarsdb.dll
 C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsdb\obj\Debug\outpostwarsdb.pdb
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsdb\bin\Debug\nunit.framework.dll
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsdb\bin\Debug\nunit.framework.pdb
+C:\Users\Rob\Documents\outpostwars\webgame\main\outpostwars\outpostwarsdb\bin\Debug\nunit.framework.xml

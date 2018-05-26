@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using outpostwars;
-using outpostwars.Controllers;
+
 
 namespace outpostwars.Tests.Controllers
 {
