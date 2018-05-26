@@ -26,8 +26,8 @@ namespace outpostwarsClassesTests
             sector.allowPayToWinStore = true;
             sector.visibleToPlayers = true;
             sector.enabled = true;
-            int rowsAffected = create.CreateSector(sector);
-            if (rowsAffected == 1)
+          
+            if (create.CreateSector(sector))
             {
                 Assert.Pass();
             }
@@ -49,8 +49,8 @@ namespace outpostwarsClassesTests
 
             // Add to Test Sector
             newPlayer.sectorID = 1;
-            int rowsAffected = create.CreatePlayer(newPlayer);
-            if(rowsAffected == 1)
+           
+            if(create.CreatePlayer(newPlayer))
             {
                // TRUE
             }

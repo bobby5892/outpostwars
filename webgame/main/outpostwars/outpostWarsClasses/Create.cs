@@ -9,8 +9,31 @@ namespace outpostWarsClasses
 {
     public class Create
     {
+        #region CompleteObjects
+        public bool CreateEverything(Player newPlayer)
+        {
+            bool success = false;
+            // Get an Open Sector
+            Sector chosen = Find.FindSector(true);
+            // Put the Player in the chosen sector
+            newPlayer.sectorID = chosen.id;
+            // Create the Player
+            success = CreatePlayer(newPlayer);
+            // Get The Player ID
+            int playerID = Find.FindPlayerIDbyCSLID(newPlayer.CLSID);
+            // Find and Set a GridLocation in new outpost
+            Outpost newOutpost = new Outpost();
+
+            // Open Location
+           // CommonTools.GridLocation location = FindOpenLocationInSector(chosen);
+
+            return success;
+        }
+        #endregion
+        #region Individual Objects
+
         #region Alliance
-        public int CreateAlliance(Alliance alliance)
+        public bool CreateAlliance(Alliance alliance)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -18,18 +41,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.Alliances.Add(alliance);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
             #endregion
 
         #region AllianceLedger
-            public int CreateAllianceLedger(AllianceLedger allianceLedger)
+            public bool CreateAllianceLedger(AllianceLedger allianceLedger)
             {
                 outpostwarsEntities entities = new outpostwarsEntities();
                 try
@@ -37,18 +60,18 @@ namespace outpostWarsClasses
                     // Add tew New Player into the player Collection
                     entities.AllianceLedgers.Add(allianceLedger);
                     // Save changes
-                    return entities.SaveChanges();
+                    return (entities.SaveChanges() == 1);
                 }
                 catch (DbEntityValidationException ex)
                 {
                     LogCriticalError(ex);
                 }
-                return 0;
+                return false;
             }
         #endregion
 
         #region AllianceMember
-        public int CreateAllianceMember(AllianceMember allianceMember)
+        public bool CreateAllianceMember(AllianceMember allianceMember)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -56,18 +79,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.AllianceMembers.Add(allianceMember);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region AllianceStore
-        public int CreateAllianceStore(AllianceStore allianceStore)
+        public bool CreateAllianceStore(AllianceStore allianceStore)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -75,18 +98,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.AllianceStores.Add(allianceStore);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region AllianceWallet
-        public int CreateAllianceWallet(AllianceWallet allianceWallet)
+        public bool CreateAllianceWallet(AllianceWallet allianceWallet)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -94,18 +117,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.AllianceWallets.Add(allianceWallet);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region BannedIP
-        public int CreateBannedIP(BannedIP bannedIP)
+        public bool CreateBannedIP(BannedIP bannedIP)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -113,18 +136,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.BannedIPs.Add(bannedIP);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region BannedUserAgent
-        public int CreateBannedUserAgent(BannedUserAgent bannedUserAgent)
+        public bool CreateBannedUserAgent(BannedUserAgent bannedUserAgent)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -132,18 +155,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.BannedUserAgents.Add(bannedUserAgent);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region BattleEvent
-        public int CreateBattleEvent(BattleEvent battleEvent)
+        public bool CreateBattleEvent(BattleEvent battleEvent)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -151,13 +174,13 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.BattleEvents.Add(battleEvent);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
@@ -247,7 +270,7 @@ namespace outpostWarsClasses
         #endregion
 
         #region Fleet
-        public int CreateFleet(Fleet fleet)
+        public bool CreateFleet(Fleet fleet)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -255,18 +278,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.Fleets.Add(fleet);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region FleetBuilding
-        public int CreateFleetBuilding(FleetBuilding fleetBuilding)
+        public bool CreateFleetBuilding(FleetBuilding fleetBuilding)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -274,18 +297,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.FleetBuildings.Add(fleetBuilding);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region GameSetting
-        public int CreateGameSetting(GameSetting gameSetting)
+        public bool CreateGameSetting(GameSetting gameSetting)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -293,18 +316,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.GameSettings.Add(gameSetting);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region Inventory
-        public int CreateInventory(Inventory inventory)
+        public bool CreateInventory(Inventory inventory)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -312,18 +335,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.Inventories.Add(inventory);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region Item
-        public int CreateItem(Item item)
+        public bool CreateItem(Item item)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -331,18 +354,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.Items.Add(item);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region Log
-        public int CreateLog(Log log)
+        public bool CreateLog(Log log)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -350,18 +373,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.Logs.Add(log);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region Login
-        public int CreateLogin(Login login)
+        public bool CreateLogin(Login login)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -369,18 +392,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.Logins.Add(login);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region Message
-        public int CreateMessage(Message message)
+        public bool CreateMessage(Message message)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -388,18 +411,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.Messages.Add(message);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region Node
-        public int CreateNode(Node node)
+        public bool CreateNode(Node node)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -407,18 +430,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.Nodes.Add(node);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region Outpost
-        public int CreateOutpost(Outpost outpost)
+        public bool CreateOutpost(Outpost outpost)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -426,19 +449,19 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.Outposts.Add(outpost);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region Player
 
-        public int CreatePlayer(Player newPlayer)
+        public bool CreatePlayer(Player newPlayer)
         {
 
             // Build a generic character name
@@ -476,23 +499,22 @@ namespace outpostWarsClasses
                 outpostwarsdb.outpostwarsEntities entities = new outpostwarsEntities();
                 // Add tew New Player into the player Collection
                 entities.Players.Add(newPlayer);
-                // Save changes
-                int rowChanges = entities.SaveChanges();
+          
 
-                return rowChanges;
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
             // Only hapens if problem
-            return 0;
+            return false;
 
         }
         #endregion
 
         #region PlayerBuff
-        public int CreatePlayerBuff(PlayerBuff playerBuff)
+        public bool CreatePlayerBuff(PlayerBuff playerBuff)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -500,18 +522,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.PlayerBuffs.Add(playerBuff);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region  PlayerResource
-        public int CreatePlayerResource(PlayerResource playerResource)
+        public bool CreatePlayerResource(PlayerResource playerResource)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -519,18 +541,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.PlayerResources.Add(playerResource);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region PlayerSetting
-        public int CreatePlayerSetting(PlayerSetting playerSetting)
+        public bool CreatePlayerSetting(PlayerSetting playerSetting)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -538,18 +560,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.PlayerSettings.Add(playerSetting);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region ResearchCompleted
-        public int CreateResearchCompleted(ResearchCompleted researchCompleted)
+        public bool CreateResearchCompleted(ResearchCompleted researchCompleted)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -557,18 +579,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.ResearchCompleteds.Add(researchCompleted);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region ResearchCost
-        public int CreateResearchCost(ResearchCost researchCost)
+        public bool CreateResearchCost(ResearchCost researchCost)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -576,18 +598,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.ResearchCosts.Add(researchCost);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region ResearchTree
-        public int CreateResearchTree(ResearchTree researchTree)
+        public bool CreateResearchTree(ResearchTree researchTree)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -595,18 +617,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.ResearchTrees.Add(researchTree);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region ResearchType
-        public int CreateResearchType(ResearchType researchType)
+        public bool CreateResearchType(ResearchType researchType)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -614,18 +636,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.ResearchTypes.Add(researchType);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region ResourceType
-        public int CreateResourceType(ResourceType resourceType)
+        public bool CreateResourceType(ResourceType resourceType)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -633,18 +655,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.ResourceTypes.Add(resourceType);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region Sector
-        public int CreateSector(Sector sector)
+        public bool CreateSector(Sector sector)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -652,18 +674,38 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.Sectors.Add(sector);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
+        }
+        #endregion
+
+        #region SectorMap
+        public bool CreateSectorMap(SectorMap sectorMap)
+        {
+            outpostwarsEntities entities = new outpostwarsEntities();
+            try
+            {
+                // Add tew New Player into the player Collection
+                entities.SectorMaps.Add(sectorMap);
+                // Save changes
+                return (entities.SaveChanges() == 1);
+            }
+            catch (DbEntityValidationException ex)
+            {
+                LogCriticalError(ex);
+            }
+            return false;
+           
         }
         #endregion
 
         #region Ship
-        public int CreateShip(Ship ship)
+        public bool CreateShip(Ship ship)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -671,18 +713,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.Ships.Add(ship);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region ShipCost
-        public int CreateShipCost(ShipCost shipCost)
+        public bool CreateShipCost(ShipCost shipCost)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -690,18 +732,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.ShipCosts.Add(shipCost);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region ShipsLostLineItem
-        public int CreateShipsLostLineItem(ShipsLostLineItem shipsLostLineItem)
+        public bool CreateShipsLostLineItem(ShipsLostLineItem shipsLostLineItem)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -709,37 +751,37 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.ShipsLostLineItems.Add(shipsLostLineItem);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region ShipsRemainingLineItem
-        public int CreateShipsRemainingLineItem(ShipsRemainingLineItem shipsRemainingLineItem)
+        public bool CreateShipsRemainingLineItem(ShipsRemainingLineItem shipsRemainingLineItem)
         {
-            outpostwarsEntities entities = new outpostwarsEntities();
+             outpostwarsEntities entities = new outpostwarsEntities();
             try
             {
                 // Add tew New Player into the player Collection
                 entities.ShipsRemainingLineItems.Add(shipsRemainingLineItem);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region Station
-        public int CreateStation(Station station)
+        public bool CreateStation(Station station)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -747,18 +789,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.Stations.Add(station);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region StationType
-        public int CreateStationType(StationType stationType)
+        public bool CreateStationType(StationType stationType)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -766,18 +808,18 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.StationTypes.Add(stationType);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
         #endregion
 
         #region StationUpgradesCost
-        public int CreateStationUpgradesCost(StationUpgradesCost stationUpgradesCost)
+        public bool CreateStationUpgradesCost(StationUpgradesCost stationUpgradesCost)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -785,19 +827,19 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.StationUpgradesCosts.Add(stationUpgradesCost);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
 
         #endregion
 
         #region StatType
-        public int CreatStatType(StatType statType)
+        public bool CreateStatType(StatType statType)
         {
             outpostwarsEntities entities = new outpostwarsEntities();
             try
@@ -805,14 +847,16 @@ namespace outpostWarsClasses
                 // Add tew New Player into the player Collection
                 entities.StatTypes.Add(statType);
                 // Save changes
-                return entities.SaveChanges();
+                return (entities.SaveChanges() == 1);
             }
             catch (DbEntityValidationException ex)
             {
                 LogCriticalError(ex);
             }
-            return 0;
+            return false;
         }
+        #endregion
+
         #endregion
     }
 }

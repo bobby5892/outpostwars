@@ -16,7 +16,6 @@ namespace outpostwarsdb
         public virtual DbSet<AllianceLedger> AllianceLedgers { get; set; }
         public virtual DbSet<AllianceMember> AllianceMembers { get; set; }
         public virtual DbSet<AllianceWallet> AllianceWallets { get; set; }
-        public virtual DbSet<Auth> Auths { get; set; }
         public virtual DbSet<BattleEvent> BattleEvents { get; set; }
         public virtual DbSet<CriticalError> CriticalErrors { get; set; }
         public virtual DbSet<FleetBuilding> FleetBuildings { get; set; }
@@ -37,6 +36,7 @@ namespace outpostwarsdb
         public virtual DbSet<ResearchType> ResearchTypes { get; set; }
         public virtual DbSet<ResourceType> ResourceTypes { get; set; }
         public virtual DbSet<Sector> Sectors { get; set; }
+        public virtual DbSet<SectorMap> SectorMaps { get; set; }
         public virtual DbSet<ShipCost> ShipCosts { get; set; }
         public virtual DbSet<Ship> Ships { get; set; }
         public virtual DbSet<ShipsLostLineItem> ShipsLostLineItems { get; set; }
@@ -97,10 +97,6 @@ namespace outpostwarsdb
             modelBuilder.Entity<Alliance>()
                 .HasOptional(e => e.AllianceWallet)
                 .WithRequired(e => e.Alliance);
-
-            modelBuilder.Entity<Auth>()
-                .Property(e => e.passwordHash)
-                .IsUnicode(false);
 
             modelBuilder.Entity<BattleEvent>()
                 .HasMany(e => e.ShipsLostLineItems)
@@ -251,11 +247,6 @@ namespace outpostwarsdb
                 .HasMany(e => e.AllianceMembers)
                 .WithRequired(e => e.Player)
                 .HasForeignKey(e => e.idPlayer)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Player>()
-                .HasMany(e => e.Auths)
-                .WithRequired(e => e.Player)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Player>()

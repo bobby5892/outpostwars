@@ -31,10 +31,14 @@ namespace outpostwarsAPINET.Account
                 /* Create User Account */
                Create create = new Create();
                Player newPlayer = new Player();
-                newPlayer.CLSID = user.Id;
-                newPlayer.email = user.Email;
-               create.CreatePlayer(newPlayer);
-              
+               newPlayer.CLSID = user.Id;
+               newPlayer.email = user.Email;
+                
+               create.CreateEverything(newPlayer);
+
+              // create.CreateEverything(newPlayer,chosenSector);
+
+
                 signInManager.SignIn( user, isPersistent: false, rememberBrowser: true);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }

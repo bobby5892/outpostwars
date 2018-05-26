@@ -60,7 +60,6 @@
     <Compile Include="AllianceMember.cs" />
     <Compile Include="AllianceStore.cs" />
     <Compile Include="AllianceWallet.cs" />
-    <Compile Include="Auth.cs" />
     <Compile Include="BannedIP.cs" />
     <Compile Include="BannedUserAgent.cs" />
     <Compile Include="BattleEvent.cs" />
@@ -87,6 +86,7 @@
     <Compile Include="ResearchType.cs" />
     <Compile Include="ResourceType.cs" />
     <Compile Include="Sector.cs" />
+    <Compile Include="SectorMap.cs" />
     <Compile Include="Ship.cs" />
     <Compile Include="ShipCost.cs" />
     <Compile Include="ShipsLostLineItem.cs" />

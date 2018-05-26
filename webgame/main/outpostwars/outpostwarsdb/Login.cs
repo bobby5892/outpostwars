@@ -38,10 +38,6 @@ namespace outpostwarsdb
 
         public bool isDesktop { get; set; }
 
-        public int? authID { get; set; }
-
-        public virtual Auth Auth { get; set; }
-
         public virtual Player Player { get; set; }
     }
 }

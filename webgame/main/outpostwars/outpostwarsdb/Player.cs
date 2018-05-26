@@ -14,7 +14,6 @@ namespace outpostwarsdb
         {
             AllianceLedgers = new HashSet<AllianceLedger>();
             AllianceMembers = new HashSet<AllianceMember>();
-            Auths = new HashSet<Auth>();
             FleetBuildings = new HashSet<FleetBuilding>();
             Fleets = new HashSet<Fleet>();
             Inventories = new HashSet<Inventory>();
@@ -96,9 +95,6 @@ namespace outpostwarsdb
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AllianceMember> AllianceMembers { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Auth> Auths { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FleetBuilding> FleetBuildings { get; set; }
