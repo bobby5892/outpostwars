@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using outpostwarsdb;
 
 namespace outpostWarsClasses
 {
-    public class Validate
+    /// <summary>
+    ///  This class is about upgrades/building stations 
+    /// </summary>
+    public class Build
     {
-        Create create = new Create();
-       
-
     }
 }

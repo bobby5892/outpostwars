@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using outpostwarsdb;
 
 namespace outpostWarsClasses
 {
-    public class Validate
+    /// <summary>
+    /// A group of Actions - Including Attack/Defend
+    /// </summary>
+    public class Action
     {
-        Create create = new Create();
-       
-
     }
 }
