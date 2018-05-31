@@ -36,10 +36,10 @@ namespace outpostWarsClasses
             return player.id;
         }
 
-        public static CommonTools.GridLocation FindOpenLocationInSector(Sector sector)
+        public static GridLocation FindOpenLocationInSector(Sector sector)
         {
             // Create a List of Grids that Already Exist
-            List<CommonTools.GridLocation> locations = new List<CommonTools.GridLocation>();
+            List<GridLocation> locations = new List<GridLocation>();
 
             /*
             var lstObject1 = listObject1.Select(item -> item.ObjectId).ToArray();  
@@ -49,7 +49,7 @@ namespace outpostWarsClasses
             // outpostwarsEntities.SectorMaps.Select(map => map.id)
 
             // NOT FINISHED - ROB IS HERE
-            CommonTools.GridLocation temp = new CommonTools.GridLocation();
+            GridLocation temp = new GridLocation();
             
             return temp;
 

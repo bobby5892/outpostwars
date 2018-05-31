@@ -41,12 +41,7 @@ namespace outpostWarsClasses
         /// <summary>
         /// Struct - For Passing around Coordinates
         /// </summary>
-        public struct GridLocation
-        {
-            int X;
-            int Y;
-            int SectorID;
-        }
+        
         #endregion
 
        

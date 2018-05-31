@@ -55,51 +55,173 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alliance.cs" />
-    <Compile Include="AllianceLedger.cs" />
-    <Compile Include="AllianceMember.cs" />
-    <Compile Include="AllianceStore.cs" />
-    <Compile Include="AllianceWallet.cs" />
-    <Compile Include="BannedIP.cs" />
-    <Compile Include="BannedUserAgent.cs" />
-    <Compile Include="BattleEvent.cs" />
-    <Compile Include="CriticalError.cs" />
-    <Compile Include="Fleet.cs" />
-    <Compile Include="FleetBuilding.cs" />
-    <Compile Include="GameSetting.cs" />
-    <Compile Include="Inventory.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="Log.cs" />
-    <Compile Include="Login.cs" />
-    <Compile Include="Message.cs" />
-    <Compile Include="Node.cs" />
-    <Compile Include="Outpost.cs" />
-    <Compile Include="outpostwarsEntities.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="PlayerBuff.cs" />
-    <Compile Include="PlayerResource.cs" />
-    <Compile Include="PlayerSetting.cs" />
+    <Compile Include="Alliance.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllianceLedger.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllianceMember.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllianceStore.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllianceWallet.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BannedIP.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BannedUserAgent.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BattleEvent.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CriticalError.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FleetBuilding.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GameSetting.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Log.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Message.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Node.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Outpost.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="outpostwarsEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>outpostwarsEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="outpostwarsEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="outpostwarsEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>outpostwarsEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Player.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerBuff.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerResource.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerSetting.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResearchCompleted.cs" />
-    <Compile Include="ResearchCost.cs" />
-    <Compile Include="ResearchTree.cs" />
-    <Compile Include="ResearchType.cs" />
-    <Compile Include="ResourceType.cs" />
-    <Compile Include="Sector.cs" />
-    <Compile Include="SectorMap.cs" />
-    <Compile Include="Ship.cs" />
-    <Compile Include="ShipCost.cs" />
-    <Compile Include="ShipsLostLineItem.cs" />
-    <Compile Include="ShipsRemainingLineItem.cs" />
-    <Compile Include="Station.cs" />
-    <Compile Include="StationType.cs" />
-    <Compile Include="StationUpgradesCost.cs" />
-    <Compile Include="StatType.cs" />
-    <Compile Include="sysdiagram.cs" />
+    <Compile Include="ResearchCompleted.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ResearchCost.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ResearchTree.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ResearchType.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ResourceType.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sector.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SectorMap.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ship.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShipCost.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShipsLostLineItem.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShipsRemainingLineItem.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Station.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StationType.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StationUpgradesCost.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StatType.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>outpostwarsEntities.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <EntityDeploy Include="outpostwarsEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>outpostwarsEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="outpostwarsEntities.edmx.diagram">
+      <DependentUpon>outpostwarsEntities.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="outpostwarsEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>outpostwarsEntities.Context.cs</LastGenOutput>
+      <DependentUpon>outpostwarsEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="outpostwarsEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>outpostwarsEntities.edmx</DependentUpon>
+      <LastGenOutput>outpostwarsEntities.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,0 +1,1221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="outpostwarsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alliance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="20" />
+    <Property Name="icon" Type="int" Nullable="false" />
+    <Property Name="banner" Type="int" Nullable="false" />
+    <Property Name="rank1title" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="rank2title" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="rank3title" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="rank4title" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="rank5title" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="permInviteMembers" Type="int" Nullable="false" />
+    <Property Name="permRemoveMembers" Type="int" Nullable="false" />
+    <Property Name="permPromoteMember" Type="int" Nullable="false" />
+    <Property Name="permKickMember" Type="int" Nullable="false" />
+    <Property Name="permEditClan" Type="int" Nullable="false" />
+    <Property Name="permEditPerms" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AllianceLedger">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="playerID" Type="int" Nullable="false" />
+    <Property Name="timestamp" Type="datetime" Nullable="false" />
+    <Property Name="resourceType" Type="int" Nullable="false" />
+    <Property Name="value" Type="int" Nullable="false" />
+    <Property Name="allianceID" Type="int" Nullable="false" />
+    <Property Name="itemID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AllianceMember">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idPlayer" Type="int" Nullable="false" />
+    <Property Name="idAlliance" Type="int" Nullable="false" />
+    <Property Name="rank" Type="int" Nullable="false" />
+    <Property Name="timestampJoin" Type="datetime" Nullable="false" />
+    <Property Name="currency" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'outpostwars.dbo.AllianceStore' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllianceStore">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="itemID" />
+      <PropertyRef Name="qty" />
+      <PropertyRef Name="allianceID" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="itemID" Type="int" Nullable="false" />
+    <Property Name="qty" Type="int" Nullable="false" />
+    <Property Name="allianceID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AllianceWallet">
+    <Key>
+      <PropertyRef Name="idAlliance" />
+    </Key>
+    <Property Name="idAlliance" Type="int" Nullable="false" />
+    <Property Name="resourceID1" Type="int" Nullable="false" />
+    <Property Name="resourceID2" Type="int" Nullable="false" />
+    <Property Name="resourceID3" Type="int" Nullable="false" />
+    <Property Name="resourceID4" Type="int" Nullable="false" />
+    <Property Name="resourceID5" Type="int" Nullable="false" />
+    <Property Name="resourceQty1" Type="int" Nullable="false" />
+    <Property Name="resourceQty2" Type="int" Nullable="false" />
+    <Property Name="resourceQty3" Type="int" Nullable="false" />
+    <Property Name="resourceQty4" Type="int" Nullable="false" />
+    <Property Name="resourceQty5" Type="int" Nullable="false" />
+    <Property Name="showResource1ToAlliance" Type="bit" Nullable="false" />
+    <Property Name="showResource2ToAlliance" Type="bit" Nullable="false" />
+    <Property Name="showResource3ToAlliance" Type="bit" Nullable="false" />
+    <Property Name="showResource4ToAlliance" Type="bit" Nullable="false" />
+    <Property Name="showResource5ToAlliance" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'outpostwars.dbo.BannedIP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="BannedIP">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="ip" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ip" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'outpostwars.dbo.BannedUserAgent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="BannedUserAgent">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="userAgent" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userAgent" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BattleEvent">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="timestamp" Type="datetime" Nullable="false" />
+    <Property Name="attackerID" Type="int" Nullable="false" />
+    <Property Name="defenderID" Type="int" Nullable="false" />
+    <Property Name="mapX" Type="int" Nullable="false" />
+    <Property Name="mapY" Type="int" Nullable="false" />
+    <Property Name="sectorID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CriticalErrors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="timestamp" Type="datetime" />
+    <Property Name="Data" Type="text" />
+    <Property Name="EntityValidationErrors" Type="text" />
+    <Property Name="HelpLink" Type="text" />
+    <Property Name="InnerException" Type="text" />
+    <Property Name="Message" Type="text" />
+    <Property Name="Source" Type="text" />
+    <Property Name="StackTrace" Type="text" />
+    <Property Name="TargetSite" Type="text" />
+  </EntityType>
+  <EntityType Name="FleetBuilding">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idPlayer" Type="int" Nullable="false" />
+    <Property Name="shipID" Type="int" Nullable="false" />
+    <Property Name="qty" Type="int" Nullable="false" />
+    <Property Name="completitionTimeReaminingSeconds" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fleets">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="playerID" Type="int" Nullable="false" />
+    <Property Name="shipID" Type="int" Nullable="false" />
+    <Property Name="qty" Type="int" Nullable="false" />
+    <Property Name="showOnWorldMap" Type="bit" Nullable="false" />
+    <Property Name="mapX" Type="int" Nullable="false" />
+    <Property Name="mapY" Type="int" Nullable="false" />
+    <Property Name="sectorID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'outpostwars.dbo.GameSettings' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="GameSettings">
+    <Key>
+      <PropertyRef Name="hashExpirationHours" />
+      <PropertyRef Name="baseMovementSpeed" />
+      <PropertyRef Name="alllowLogins" />
+      <PropertyRef Name="maintnenceMode" />
+    </Key>
+    <Property Name="hashExpirationHours" Type="int" Nullable="false" />
+    <Property Name="baseMovementSpeed" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="alllowLogins" Type="bit" Nullable="false" />
+    <Property Name="maintnenceMode" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Inventory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="itemID" Type="int" />
+    <Property Name="qty" Type="int" />
+    <Property Name="playerID" Type="int" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="20" />
+    <Property Name="icon" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="playerID" Type="int" Nullable="false" />
+    <Property Name="action" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="details" Type="text" Nullable="false" />
+    <Property Name="timestamp" Type="datetime" Nullable="false" />
+    <Property Name="isCritical" Type="bit" Nullable="false" />
+    <Property Name="isWarning" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="timestamp" Type="datetime" Nullable="false" />
+    <Property Name="idPlayer" Type="int" Nullable="false" />
+    <Property Name="success" Type="bit" Nullable="false" />
+    <Property Name="detail" Type="text" />
+    <Property Name="ip" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="userAgent" Type="text" Nullable="false" />
+    <Property Name="screenWidth" Type="int" Nullable="false" />
+    <Property Name="screenHeight" Type="int" Nullable="false" />
+    <Property Name="isMobile" Type="bit" Nullable="false" />
+    <Property Name="isTablet" Type="bit" Nullable="false" />
+    <Property Name="isDesktop" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'outpostwars.dbo.Message' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="player1ID" />
+      <PropertyRef Name="player2ID" />
+      <PropertyRef Name="allianceID" />
+      <PropertyRef Name="contents" />
+      <PropertyRef Name="isPlayerToPlayer" />
+      <PropertyRef Name="isToClan" />
+      <PropertyRef Name="timestamp" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="player1ID" Type="int" Nullable="false" />
+    <Property Name="player2ID" Type="int" Nullable="false" />
+    <Property Name="allianceID" Type="int" Nullable="false" />
+    <Property Name="contents" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="isPlayerToPlayer" Type="bit" Nullable="false" />
+    <Property Name="isToClan" Type="bit" Nullable="false" />
+    <Property Name="timestamp" Type="datetime" Nullable="false" />
+    <Property Name="isRead" Type="bit" />
+  </EntityType>
+  <EntityType Name="Nodes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mapX" Type="int" Nullable="false" />
+    <Property Name="mapY" Type="int" Nullable="false" />
+    <Property Name="sectorID" Type="int" Nullable="false" />
+    <Property Name="resourceTypeID" Type="int" Nullable="false" />
+    <Property Name="unitsReamining" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Outpost">
+    <Key>
+      <PropertyRef Name="IdPlayer" />
+    </Key>
+    <Property Name="IdPlayer" Type="int" Nullable="false" />
+    <Property Name="mapX" Type="int" Nullable="false" />
+    <Property Name="mapY" Type="int" Nullable="false" />
+    <Property Name="power" Type="int" Nullable="false" />
+    <Property Name="sectorID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="characterName" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="firstName" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="lastName" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="passwordResetHash" Type="varchar" MaxLength="64" />
+    <Property Name="passwordHashExpiration" Type="datetime" />
+    <Property Name="facebookToken" Type="varchar" MaxLength="255" />
+    <Property Name="googleToken" Type="varchar" MaxLength="255" />
+    <Property Name="createdAtTimestamp" Type="datetime" Nullable="false" />
+    <Property Name="updatedAtTimestamp" Type="datetime" Nullable="false" />
+    <Property Name="lastLoginTimestamp" Type="datetime" Nullable="false" />
+    <Property Name="enabled" Type="bit" />
+    <Property Name="allianceID" Type="int" Nullable="false" />
+    <Property Name="sourceClickID" Type="varchar" MaxLength="64" />
+    <Property Name="sourceSub1" Type="varchar" MaxLength="20" />
+    <Property Name="sourceSub2" Type="varchar" MaxLength="20" />
+    <Property Name="sourceSub3" Type="varchar" MaxLength="20" />
+    <Property Name="sourceSub4" Type="varchar" MaxLength="20" />
+    <Property Name="sourceSub5" Type="varchar" MaxLength="20" />
+    <Property Name="firstLoginComplete" Type="bit" Nullable="false" />
+    <Property Name="sectorID" Type="int" Nullable="false" />
+    <Property Name="canLoginDuringMaintnence" Type="bit" Nullable="false" />
+    <Property Name="CLSID" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlayerBuff">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPlayer" Type="int" Nullable="false" />
+    <Property Name="statID" Type="int" Nullable="false" />
+    <Property Name="value" Type="int" Nullable="false" />
+    <Property Name="countdownRemaining" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlayerResources">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="resourceTypeID" Type="int" Nullable="false" />
+    <Property Name="qty" Type="int" Nullable="false" />
+    <Property Name="playerID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlayerSettings">
+    <Key>
+      <PropertyRef Name="idPlayer" />
+    </Key>
+    <Property Name="idPlayer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sendEmails" Type="bit" Nullable="false" />
+    <Property Name="sendPush" Type="bit" Nullable="false" />
+    <Property Name="sendBrowserPush" Type="bit" Nullable="false" />
+    <Property Name="alertOnBuildComplete" Type="bit" Nullable="false" />
+    <Property Name="alertOnBeingAttacked" Type="bit" Nullable="false" />
+    <Property Name="alertOnAttack" Type="bit" Nullable="false" />
+    <Property Name="musicEnabled" Type="bit" Nullable="false" />
+    <Property Name="soundEffectsEnabled" Type="bit" Nullable="false" />
+    <Property Name="tutorialEnabled" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ResearchCompleted">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="playerID" Type="int" Nullable="false" />
+    <Property Name="researchTypeID" Type="int" Nullable="false" />
+    <Property Name="level" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ResearchCosts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="researchTypeID" Type="int" Nullable="false" />
+    <Property Name="resourceID1" Type="int" Nullable="false" />
+    <Property Name="resourceID2" Type="int" Nullable="false" />
+    <Property Name="resourceID3" Type="int" Nullable="false" />
+    <Property Name="resourceID4" Type="int" Nullable="false" />
+    <Property Name="resourceID5" Type="int" Nullable="false" />
+    <Property Name="resourceQty1" Type="int" Nullable="false" />
+    <Property Name="resourceQty2" Type="int" Nullable="false" />
+    <Property Name="resourceQty3" Type="int" Nullable="false" />
+    <Property Name="resourceQty4" Type="int" Nullable="false" />
+    <Property Name="resourceQty5" Type="int" Nullable="false" />
+    <Property Name="costModifierPerLevel" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="maxLevel" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ResearchTree">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="researchTreeParentID" Type="int" Nullable="false" />
+    <Property Name="researchTreeChild1ID" Type="int" Nullable="false" />
+    <Property Name="researchTreeChild2ID" Type="int" Nullable="false" />
+    <Property Name="researchTreeChild3ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ResearchTypes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="requiresStationID" Type="int" Nullable="false" />
+    <Property Name="stationLevelRequired" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ResourceTypes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="int" Nullable="false" />
+    <Property Name="icon" Type="int" Nullable="false" />
+    <Property Name="cargoSize" Type="int" Nullable="false" />
+    <Property Name="description" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sector">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="allowsNewPlayers" Type="bit" Nullable="false" />
+    <Property Name="visibleToPlayers" Type="bit" Nullable="false" />
+    <Property Name="enabled" Type="bit" Nullable="false" />
+    <Property Name="createdTimestamp" Type="date" Nullable="false" />
+    <Property Name="allowPayToWinStore" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SectorMap">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="x" Type="int" />
+    <Property Name="y" Type="int" />
+    <Property Name="objectType" Type="nvarchar" MaxLength="50" />
+    <Property Name="objectID" Type="int" />
+    <Property Name="sectorID" Type="int" />
+  </EntityType>
+  <EntityType Name="ShipCost">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="shipTypeID" Type="int" />
+    <Property Name="resourceID1" Type="int" Nullable="false" />
+    <Property Name="resourceID2" Type="int" Nullable="false" />
+    <Property Name="resourceID3" Type="int" Nullable="false" />
+    <Property Name="resourceID4" Type="int" Nullable="false" />
+    <Property Name="resourceID5" Type="int" Nullable="false" />
+    <Property Name="resourceQty1" Type="int" Nullable="false" />
+    <Property Name="resourceQty2" Type="int" Nullable="false" />
+    <Property Name="resourceQty3" Type="int" Nullable="false" />
+    <Property Name="resourceQty4" Type="int" Nullable="false" />
+    <Property Name="resourceQty5" Type="int" Nullable="false" />
+    <Property Name="openToPlayers" Type="bit" Nullable="false" />
+    <Property Name="requiredStationType" Type="int" Nullable="false" />
+    <Property Name="requiredStationLevel" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ships">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="int" Nullable="false" />
+    <Property Name="icon" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="worldMapAnimationImage" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShipsLostLineItems">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="battleID" Type="int" Nullable="false" />
+    <Property Name="playerID" Type="int" Nullable="false" />
+    <Property Name="shipID" Type="int" Nullable="false" />
+    <Property Name="qty" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShipsRemainingLineItems">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="battleID" Type="int" Nullable="false" />
+    <Property Name="playerID" Type="int" Nullable="false" />
+    <Property Name="shipID" Type="int" Nullable="false" />
+    <Property Name="qty" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Station">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="outpostID" Type="int" Nullable="false" />
+    <Property Name="stationTypeID" Type="int" Nullable="false" />
+    <Property Name="level" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StationTypes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="icon" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="description" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StationUpgradesCost">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stationTypeID" Type="int" Nullable="false" />
+    <Property Name="level" Type="int" Nullable="false" />
+    <Property Name="resourceID1" Type="int" Nullable="false" />
+    <Property Name="resourceID2" Type="int" Nullable="false" />
+    <Property Name="resourceID3" Type="int" Nullable="false" />
+    <Property Name="resourceID4" Type="int" Nullable="false" />
+    <Property Name="resourceID5" Type="int" Nullable="false" />
+    <Property Name="resourceQty1" Type="int" Nullable="false" />
+    <Property Name="resourceQty2" Type="int" Nullable="false" />
+    <Property Name="resourceQty3" Type="int" Nullable="false" />
+    <Property Name="resourceQty4" Type="int" Nullable="false" />
+    <Property Name="resourceQty5" Type="int" Nullable="false" />
+    <Property Name="openToPlayers" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StatTypes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="visibleToPlayer" Type="bit" Nullable="false" />
+    <Property Name="forFleet" Type="bit" Nullable="false" />
+    <Property Name="forOutpost" Type="bit" Nullable="false" />
+    <Property Name="typeID" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_AllianceLedger_Alliance">
+    <End Role="Alliance" Type="Self.Alliance" Multiplicity="1" />
+    <End Role="AllianceLedger" Type="Self.AllianceLedger" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alliance">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AllianceLedger">
+        <PropertyRef Name="allianceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AllianceLedger_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="AllianceLedger" Type="Self.AllianceLedger" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AllianceLedger">
+        <PropertyRef Name="itemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AllianceLedger_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="AllianceLedger" Type="Self.AllianceLedger" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AllianceLedger">
+        <PropertyRef Name="playerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AllianceMember_Alliance">
+    <End Role="Alliance" Type="Self.Alliance" Multiplicity="1" />
+    <End Role="AllianceMember" Type="Self.AllianceMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alliance">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AllianceMember">
+        <PropertyRef Name="idAlliance" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AllianceMember_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="AllianceMember" Type="Self.AllianceMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AllianceMember">
+        <PropertyRef Name="idPlayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AllianceStore_Alliance">
+    <End Role="Alliance" Type="Self.Alliance" Multiplicity="1" />
+    <End Role="AllianceStore" Type="Self.AllianceStore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alliance">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AllianceStore">
+        <PropertyRef Name="allianceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AllianceStore_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="AllianceStore" Type="Self.AllianceStore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AllianceStore">
+        <PropertyRef Name="itemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AllianceWallet_Alliance">
+    <End Role="Alliance" Type="Self.Alliance" Multiplicity="1" />
+    <End Role="AllianceWallet" Type="Self.AllianceWallet" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Alliance">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AllianceWallet">
+        <PropertyRef Name="idAlliance" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fleetBuilding_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="FleetBuilding" Type="Self.FleetBuilding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FleetBuilding">
+        <PropertyRef Name="idPlayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fleetBuilding_Ships">
+    <End Role="Ships" Type="Self.Ships" Multiplicity="1" />
+    <End Role="FleetBuilding" Type="Self.FleetBuilding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ships">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FleetBuilding">
+        <PropertyRef Name="shipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fleets_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="Fleets" Type="Self.Fleets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Fleets">
+        <PropertyRef Name="playerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fleets_Sector">
+    <End Role="Sector" Type="Self.Sector" Multiplicity="1" />
+    <End Role="Fleets" Type="Self.Fleets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sector">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Fleets">
+        <PropertyRef Name="sectorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fleets_Ships">
+    <End Role="Ships" Type="Self.Ships" Multiplicity="1" />
+    <End Role="Fleets" Type="Self.Fleets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ships">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Fleets">
+        <PropertyRef Name="shipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inventory_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+    <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="itemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inventory_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
+    <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="playerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Login_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="Login" Type="Self.Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="idPlayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nodes_ResourceTypes">
+    <End Role="ResourceTypes" Type="Self.ResourceTypes" Multiplicity="1" />
+    <End Role="Nodes" Type="Self.Nodes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResourceTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Nodes">
+        <PropertyRef Name="resourceTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nodes_Sector1">
+    <End Role="Sector" Type="Self.Sector" Multiplicity="1" />
+    <End Role="Nodes" Type="Self.Nodes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sector">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Nodes">
+        <PropertyRef Name="sectorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Outpost_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="Outpost" Type="Self.Outpost" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Outpost">
+        <PropertyRef Name="IdPlayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Outpost_Sector">
+    <End Role="Sector" Type="Self.Sector" Multiplicity="1" />
+    <End Role="Outpost" Type="Self.Outpost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sector">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Outpost">
+        <PropertyRef Name="sectorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Player_Sector">
+    <End Role="Sector" Type="Self.Sector" Multiplicity="1" />
+    <End Role="Player" Type="Self.Player" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sector">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Player">
+        <PropertyRef Name="sectorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerBuff_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="PlayerBuff" Type="Self.PlayerBuff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PlayerBuff">
+        <PropertyRef Name="IdPlayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerBuff_PlayerBuff">
+    <End Role="StatTypes" Type="Self.StatTypes" Multiplicity="1" />
+    <End Role="PlayerBuff" Type="Self.PlayerBuff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PlayerBuff">
+        <PropertyRef Name="statID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerResources_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="PlayerResources" Type="Self.PlayerResources" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PlayerResources">
+        <PropertyRef Name="playerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerResources_ResourceTypes">
+    <End Role="ResourceTypes" Type="Self.ResourceTypes" Multiplicity="1" />
+    <End Role="PlayerResources" Type="Self.PlayerResources" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResourceTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PlayerResources">
+        <PropertyRef Name="resourceTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerSettings_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="PlayerSettings" Type="Self.PlayerSettings" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PlayerSettings">
+        <PropertyRef Name="idPlayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResearchCompleted_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="ResearchCompleted" Type="Self.ResearchCompleted" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ResearchCompleted">
+        <PropertyRef Name="playerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResearchCompleted_ResearchTypes">
+    <End Role="ResearchTypes" Type="Self.ResearchTypes" Multiplicity="1" />
+    <End Role="ResearchCompleted" Type="Self.ResearchCompleted" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResearchTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ResearchCompleted">
+        <PropertyRef Name="researchTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResearchCosts_ResearchTypes">
+    <End Role="ResearchTypes" Type="Self.ResearchTypes" Multiplicity="1" />
+    <End Role="ResearchCosts" Type="Self.ResearchCosts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResearchTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ResearchCosts">
+        <PropertyRef Name="researchTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SectorMap_Sector">
+    <End Role="Sector" Type="Self.Sector" Multiplicity="0..1" />
+    <End Role="SectorMap" Type="Self.SectorMap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sector">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SectorMap">
+        <PropertyRef Name="sectorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipCost_Ships">
+    <End Role="Ships" Type="Self.Ships" Multiplicity="0..1" />
+    <End Role="ShipCost" Type="Self.ShipCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ships">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ShipCost">
+        <PropertyRef Name="shipTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipsLostLineItems_BattleEvent">
+    <End Role="BattleEvent" Type="Self.BattleEvent" Multiplicity="1" />
+    <End Role="ShipsLostLineItems" Type="Self.ShipsLostLineItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BattleEvent">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ShipsLostLineItems">
+        <PropertyRef Name="battleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipsLostLineItems_Ships">
+    <End Role="Ships" Type="Self.Ships" Multiplicity="1" />
+    <End Role="ShipsLostLineItems" Type="Self.ShipsLostLineItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ships">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ShipsLostLineItems">
+        <PropertyRef Name="shipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipsRemainingLineItems_BattleEvent">
+    <End Role="BattleEvent" Type="Self.BattleEvent" Multiplicity="1" />
+    <End Role="ShipsRemainingLineItems" Type="Self.ShipsRemainingLineItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BattleEvent">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ShipsRemainingLineItems">
+        <PropertyRef Name="battleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipsRemainingLineItems_Ships">
+    <End Role="Ships" Type="Self.Ships" Multiplicity="1" />
+    <End Role="ShipsRemainingLineItems" Type="Self.ShipsRemainingLineItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ships">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ShipsRemainingLineItems">
+        <PropertyRef Name="shipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stations_Outpost">
+    <End Role="Outpost" Type="Self.Outpost" Multiplicity="1" />
+    <End Role="Station" Type="Self.Station" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Outpost">
+        <PropertyRef Name="IdPlayer" />
+      </Principal>
+      <Dependent Role="Station">
+        <PropertyRef Name="outpostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stations_StationTypes">
+    <End Role="StationTypes" Type="Self.StationTypes" Multiplicity="1" />
+    <End Role="Station" Type="Self.Station" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StationTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Station">
+        <PropertyRef Name="stationTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StationUpgradesCost_StationTypes">
+    <End Role="StationTypes" Type="Self.StationTypes" Multiplicity="1" />
+    <End Role="StationUpgradesCost" Type="Self.StationUpgradesCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StationTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="StationUpgradesCost">
+        <PropertyRef Name="stationTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="outpostwarsModelStoreContainer">
+    <EntitySet Name="Alliance" EntityType="Self.Alliance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AllianceLedger" EntityType="Self.AllianceLedger" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AllianceMember" EntityType="Self.AllianceMember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AllianceWallet" EntityType="Self.AllianceWallet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BattleEvent" EntityType="Self.BattleEvent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CriticalErrors" EntityType="Self.CriticalErrors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FleetBuilding" EntityType="Self.FleetBuilding" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fleets" EntityType="Self.Fleets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nodes" EntityType="Self.Nodes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Outpost" EntityType="Self.Outpost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlayerBuff" EntityType="Self.PlayerBuff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlayerResources" EntityType="Self.PlayerResources" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlayerSettings" EntityType="Self.PlayerSettings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ResearchCompleted" EntityType="Self.ResearchCompleted" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ResearchCosts" EntityType="Self.ResearchCosts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ResearchTree" EntityType="Self.ResearchTree" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ResearchTypes" EntityType="Self.ResearchTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ResourceTypes" EntityType="Self.ResourceTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sector" EntityType="Self.Sector" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SectorMap" EntityType="Self.SectorMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipCost" EntityType="Self.ShipCost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ships" EntityType="Self.Ships" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipsLostLineItems" EntityType="Self.ShipsLostLineItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipsRemainingLineItems" EntityType="Self.ShipsRemainingLineItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Station" EntityType="Self.Station" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StationTypes" EntityType="Self.StationTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StationUpgradesCost" EntityType="Self.StationUpgradesCost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatTypes" EntityType="Self.StatTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AllianceStore" EntityType="Self.AllianceStore" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllianceStore].[id] AS [id], 
+    [AllianceStore].[itemID] AS [itemID], 
+    [AllianceStore].[qty] AS [qty], 
+    [AllianceStore].[allianceID] AS [allianceID]
+    FROM [dbo].[AllianceStore] AS [AllianceStore]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="BannedIP" EntityType="Self.BannedIP" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [BannedIP].[id] AS [id], 
+    [BannedIP].[ip] AS [ip]
+    FROM [dbo].[BannedIP] AS [BannedIP]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="BannedUserAgent" EntityType="Self.BannedUserAgent" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [BannedUserAgent].[id] AS [id], 
+    [BannedUserAgent].[userAgent] AS [userAgent]
+    FROM [dbo].[BannedUserAgent] AS [BannedUserAgent]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="GameSettings" EntityType="Self.GameSettings" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [GameSettings].[hashExpirationHours] AS [hashExpirationHours], 
+    [GameSettings].[baseMovementSpeed] AS [baseMovementSpeed], 
+    [GameSettings].[alllowLogins] AS [alllowLogins], 
+    [GameSettings].[maintnenceMode] AS [maintnenceMode]
+    FROM [dbo].[GameSettings] AS [GameSettings]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Message" EntityType="Self.Message" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Message].[id] AS [id], 
+    [Message].[player1ID] AS [player1ID], 
+    [Message].[player2ID] AS [player2ID], 
+    [Message].[allianceID] AS [allianceID], 
+    [Message].[contents] AS [contents], 
+    [Message].[isPlayerToPlayer] AS [isPlayerToPlayer], 
+    [Message].[isToClan] AS [isToClan], 
+    [Message].[timestamp] AS [timestamp], 
+    [Message].[isRead] AS [isRead]
+    FROM [dbo].[Message] AS [Message]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_AllianceLedger_Alliance" Association="Self.FK_AllianceLedger_Alliance">
+      <End Role="Alliance" EntitySet="Alliance" />
+      <End Role="AllianceLedger" EntitySet="AllianceLedger" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AllianceLedger_Item" Association="Self.FK_AllianceLedger_Item">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="AllianceLedger" EntitySet="AllianceLedger" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AllianceLedger_Player" Association="Self.FK_AllianceLedger_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="AllianceLedger" EntitySet="AllianceLedger" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AllianceMember_Alliance" Association="Self.FK_AllianceMember_Alliance">
+      <End Role="Alliance" EntitySet="Alliance" />
+      <End Role="AllianceMember" EntitySet="AllianceMember" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AllianceMember_Player" Association="Self.FK_AllianceMember_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="AllianceMember" EntitySet="AllianceMember" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AllianceStore_Alliance" Association="Self.FK_AllianceStore_Alliance">
+      <End Role="Alliance" EntitySet="Alliance" />
+      <End Role="AllianceStore" EntitySet="AllianceStore" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AllianceStore_Item" Association="Self.FK_AllianceStore_Item">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="AllianceStore" EntitySet="AllianceStore" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AllianceWallet_Alliance" Association="Self.FK_AllianceWallet_Alliance">
+      <End Role="Alliance" EntitySet="Alliance" />
+      <End Role="AllianceWallet" EntitySet="AllianceWallet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fleetBuilding_Player" Association="Self.FK_fleetBuilding_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="FleetBuilding" EntitySet="FleetBuilding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fleetBuilding_Ships" Association="Self.FK_fleetBuilding_Ships">
+      <End Role="Ships" EntitySet="Ships" />
+      <End Role="FleetBuilding" EntitySet="FleetBuilding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fleets_Player" Association="Self.FK_Fleets_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="Fleets" EntitySet="Fleets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fleets_Sector" Association="Self.FK_Fleets_Sector">
+      <End Role="Sector" EntitySet="Sector" />
+      <End Role="Fleets" EntitySet="Fleets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fleets_Ships" Association="Self.FK_Fleets_Ships">
+      <End Role="Ships" EntitySet="Ships" />
+      <End Role="Fleets" EntitySet="Fleets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inventory_Item" Association="Self.FK_Inventory_Item">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="Inventory" EntitySet="Inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inventory_Player" Association="Self.FK_Inventory_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="Inventory" EntitySet="Inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Login_Player" Association="Self.FK_Login_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="Login" EntitySet="Login" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nodes_ResourceTypes" Association="Self.FK_Nodes_ResourceTypes">
+      <End Role="ResourceTypes" EntitySet="ResourceTypes" />
+      <End Role="Nodes" EntitySet="Nodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nodes_Sector1" Association="Self.FK_Nodes_Sector1">
+      <End Role="Sector" EntitySet="Sector" />
+      <End Role="Nodes" EntitySet="Nodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Outpost_Player" Association="Self.FK_Outpost_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="Outpost" EntitySet="Outpost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Outpost_Sector" Association="Self.FK_Outpost_Sector">
+      <End Role="Sector" EntitySet="Sector" />
+      <End Role="Outpost" EntitySet="Outpost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Player_Sector" Association="Self.FK_Player_Sector">
+      <End Role="Sector" EntitySet="Sector" />
+      <End Role="Player" EntitySet="Player" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerBuff_Player" Association="Self.FK_PlayerBuff_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="PlayerBuff" EntitySet="PlayerBuff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerBuff_PlayerBuff" Association="Self.FK_PlayerBuff_PlayerBuff">
+      <End Role="StatTypes" EntitySet="StatTypes" />
+      <End Role="PlayerBuff" EntitySet="PlayerBuff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerResources_Player" Association="Self.FK_PlayerResources_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="PlayerResources" EntitySet="PlayerResources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerResources_ResourceTypes" Association="Self.FK_PlayerResources_ResourceTypes">
+      <End Role="ResourceTypes" EntitySet="ResourceTypes" />
+      <End Role="PlayerResources" EntitySet="PlayerResources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerSettings_Player" Association="Self.FK_PlayerSettings_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="PlayerSettings" EntitySet="PlayerSettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResearchCompleted_Player" Association="Self.FK_ResearchCompleted_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="ResearchCompleted" EntitySet="ResearchCompleted" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResearchCompleted_ResearchTypes" Association="Self.FK_ResearchCompleted_ResearchTypes">
+      <End Role="ResearchTypes" EntitySet="ResearchTypes" />
+      <End Role="ResearchCompleted" EntitySet="ResearchCompleted" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResearchCosts_ResearchTypes" Association="Self.FK_ResearchCosts_ResearchTypes">
+      <End Role="ResearchTypes" EntitySet="ResearchTypes" />
+      <End Role="ResearchCosts" EntitySet="ResearchCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SectorMap_Sector" Association="Self.FK_SectorMap_Sector">
+      <End Role="Sector" EntitySet="Sector" />
+      <End Role="SectorMap" EntitySet="SectorMap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipCost_Ships" Association="Self.FK_ShipCost_Ships">
+      <End Role="Ships" EntitySet="Ships" />
+      <End Role="ShipCost" EntitySet="ShipCost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipsLostLineItems_BattleEvent" Association="Self.FK_ShipsLostLineItems_BattleEvent">
+      <End Role="BattleEvent" EntitySet="BattleEvent" />
+      <End Role="ShipsLostLineItems" EntitySet="ShipsLostLineItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipsLostLineItems_Ships" Association="Self.FK_ShipsLostLineItems_Ships">
+      <End Role="Ships" EntitySet="Ships" />
+      <End Role="ShipsLostLineItems" EntitySet="ShipsLostLineItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipsRemainingLineItems_BattleEvent" Association="Self.FK_ShipsRemainingLineItems_BattleEvent">
+      <End Role="BattleEvent" EntitySet="BattleEvent" />
+      <End Role="ShipsRemainingLineItems" EntitySet="ShipsRemainingLineItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipsRemainingLineItems_Ships" Association="Self.FK_ShipsRemainingLineItems_Ships">
+      <End Role="Ships" EntitySet="Ships" />
+      <End Role="ShipsRemainingLineItems" EntitySet="ShipsRemainingLineItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stations_Outpost" Association="Self.FK_Stations_Outpost">
+      <End Role="Outpost" EntitySet="Outpost" />
+      <End Role="Station" EntitySet="Station" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stations_StationTypes" Association="Self.FK_Stations_StationTypes">
+      <End Role="StationTypes" EntitySet="StationTypes" />
+      <End Role="Station" EntitySet="Station" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StationUpgradesCost_StationTypes" Association="Self.FK_StationUpgradesCost_StationTypes">
+      <End Role="StationTypes" EntitySet="StationTypes" />
+      <End Role="StationUpgradesCost" EntitySet="StationUpgradesCost" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

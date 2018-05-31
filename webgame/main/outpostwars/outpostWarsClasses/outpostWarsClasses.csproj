@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Action.cs" />
     <Compile Include="Build.cs" />
+    <Compile Include="CommonObject.cs" />
     <Compile Include="CommonTools.cs" />
     <Compile Include="Create.cs" />
     <Compile Include="Find.cs" />

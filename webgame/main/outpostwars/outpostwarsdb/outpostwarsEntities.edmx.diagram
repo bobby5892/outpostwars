@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a74da6f5c26e46baa16645da9b218232" Name="Diagram1" ZoomLevel="111">
+        <EntityTypeShape EntityType="outpostwarsModel.Alliance" Width="1.5" PointX="6" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.AllianceLedger" Width="1.5" PointX="5.25" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.AllianceMember" Width="1.5" PointX="8.25" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.AllianceWallet" Width="1.5" PointX="8.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.BattleEvent" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.CriticalError" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.FleetBuilding" Width="1.5" PointX="8.25" PointY="36.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.Fleet" Width="1.5" PointX="5.25" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.Inventory" Width="1.5" PointX="5.25" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.Item" Width="1.5" PointX="3" PointY="41.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.Log" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.Login" Width="1.5" PointX="5.25" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.Node" Width="1.5" PointX="3" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.Outpost" Width="1.5" PointX="8.25" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.Player" Width="1.5" PointX="3" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.PlayerBuff" Width="1.5" PointX="11.25" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.PlayerResource" Width="1.5" PointX="11.25" PointY="29.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.PlayerSetting" Width="1.5" PointX="5.25" PointY="53.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.ResearchCompleted" Width="1.5" PointX="11.25" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.ResearchCost" Width="1.5" PointX="11.25" PointY="43.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.ResearchTree" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.ResearchType" Width="1.5" PointX="9" PointY="44.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.ResourceType" Width="1.5" PointX="0.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.Sector" Width="1.5" PointX="0.75" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.SectorMap" Width="1.5" PointX="3" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.ShipCost" Width="1.5" PointX="5.25" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.Ship" Width="1.5" PointX="3" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.ShipsLostLineItem" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.ShipsRemainingLineItem" Width="1.5" PointX="8.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.Station" Width="1.5" PointX="10.5" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.StationType" Width="1.5" PointX="8.25" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.StationUpgradesCost" Width="1.5" PointX="10.5" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.StatType" Width="1.5" PointX="9" PointY="40.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.sysdiagram" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.AllianceStore" Width="1.5" PointX="14.25" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.BannedIP" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.BannedUserAgent" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.GameSetting" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="outpostwarsModel.Message" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="outpostwarsModel.FK_AllianceLedger_Alliance" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_AllianceMember_Alliance" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_AllianceStore_Alliance" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_AllianceWallet_Alliance" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_AllianceLedger_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_AllianceLedger_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_AllianceMember_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_ShipsLostLineItems_BattleEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_ShipsRemainingLineItems_BattleEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_fleetBuilding_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_fleetBuilding_Ships" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_Fleets_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_Fleets_Sector" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_Fleets_Ships" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_Inventory_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_Inventory_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_AllianceStore_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_Login_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_Nodes_ResourceTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_Nodes_Sector1" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_Outpost_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_Outpost_Sector" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_Stations_Outpost" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_Player_Sector" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_PlayerBuff_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_PlayerResources_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_PlayerSettings_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_ResearchCompleted_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_PlayerBuff_PlayerBuff" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_PlayerResources_ResourceTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_ResearchCompleted_ResearchTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_ResearchCosts_ResearchTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_SectorMap_Sector" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_ShipCost_Ships" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_ShipsLostLineItems_Ships" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_ShipsRemainingLineItems_Ships" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_Stations_StationTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="outpostwarsModel.FK_StationUpgradesCost_StationTypes" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

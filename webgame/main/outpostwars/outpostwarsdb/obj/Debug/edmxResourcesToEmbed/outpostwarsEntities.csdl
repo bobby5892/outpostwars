@@ -1,0 +1,1261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="outpostwarsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Alliance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="icon" Type="Int32" Nullable="false" />
+    <Property Name="banner" Type="Int32" Nullable="false" />
+    <Property Name="rank1title" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rank2title" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rank3title" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rank4title" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rank5title" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="permInviteMembers" Type="Int32" Nullable="false" />
+    <Property Name="permRemoveMembers" Type="Int32" Nullable="false" />
+    <Property Name="permPromoteMember" Type="Int32" Nullable="false" />
+    <Property Name="permKickMember" Type="Int32" Nullable="false" />
+    <Property Name="permEditClan" Type="Int32" Nullable="false" />
+    <Property Name="permEditPerms" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AllianceLedgers" Relationship="Self.FK_AllianceLedger_Alliance" FromRole="Alliance" ToRole="AllianceLedger" />
+    <NavigationProperty Name="AllianceMembers" Relationship="Self.FK_AllianceMember_Alliance" FromRole="Alliance" ToRole="AllianceMember" />
+    <NavigationProperty Name="AllianceStores" Relationship="Self.FK_AllianceStore_Alliance" FromRole="Alliance" ToRole="AllianceStore" />
+    <NavigationProperty Name="AllianceWallet" Relationship="Self.FK_AllianceWallet_Alliance" FromRole="Alliance" ToRole="AllianceWallet" />
+  </EntityType>
+  <EntityType Name="AllianceLedger">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="playerID" Type="Int32" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="resourceType" Type="Int32" Nullable="false" />
+    <Property Name="value" Type="Int32" Nullable="false" />
+    <Property Name="allianceID" Type="Int32" Nullable="false" />
+    <Property Name="itemID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Alliance" Relationship="Self.FK_AllianceLedger_Alliance" FromRole="AllianceLedger" ToRole="Alliance" />
+    <NavigationProperty Name="Item" Relationship="Self.FK_AllianceLedger_Item" FromRole="AllianceLedger" ToRole="Item" />
+    <NavigationProperty Name="Player" Relationship="Self.FK_AllianceLedger_Player" FromRole="AllianceLedger" ToRole="Player" />
+  </EntityType>
+  <EntityType Name="AllianceMember">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idPlayer" Type="Int32" Nullable="false" />
+    <Property Name="idAlliance" Type="Int32" Nullable="false" />
+    <Property Name="rank" Type="Int32" Nullable="false" />
+    <Property Name="timestampJoin" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="currency" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Alliance" Relationship="Self.FK_AllianceMember_Alliance" FromRole="AllianceMember" ToRole="Alliance" />
+    <NavigationProperty Name="Player" Relationship="Self.FK_AllianceMember_Player" FromRole="AllianceMember" ToRole="Player" />
+  </EntityType>
+  <EntityType Name="AllianceWallet">
+    <Key>
+      <PropertyRef Name="idAlliance" />
+    </Key>
+    <Property Name="idAlliance" Type="Int32" Nullable="false" />
+    <Property Name="resourceID1" Type="Int32" Nullable="false" />
+    <Property Name="resourceID2" Type="Int32" Nullable="false" />
+    <Property Name="resourceID3" Type="Int32" Nullable="false" />
+    <Property Name="resourceID4" Type="Int32" Nullable="false" />
+    <Property Name="resourceID5" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty1" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty2" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty3" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty4" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty5" Type="Int32" Nullable="false" />
+    <Property Name="showResource1ToAlliance" Type="Boolean" Nullable="false" />
+    <Property Name="showResource2ToAlliance" Type="Boolean" Nullable="false" />
+    <Property Name="showResource3ToAlliance" Type="Boolean" Nullable="false" />
+    <Property Name="showResource4ToAlliance" Type="Boolean" Nullable="false" />
+    <Property Name="showResource5ToAlliance" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Alliance" Relationship="Self.FK_AllianceWallet_Alliance" FromRole="AllianceWallet" ToRole="Alliance" />
+  </EntityType>
+  <EntityType Name="BattleEvent">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="attackerID" Type="Int32" Nullable="false" />
+    <Property Name="defenderID" Type="Int32" Nullable="false" />
+    <Property Name="mapX" Type="Int32" Nullable="false" />
+    <Property Name="mapY" Type="Int32" Nullable="false" />
+    <Property Name="sectorID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ShipsLostLineItems" Relationship="Self.FK_ShipsLostLineItems_BattleEvent" FromRole="BattleEvent" ToRole="ShipsLostLineItems" />
+    <NavigationProperty Name="ShipsRemainingLineItems" Relationship="Self.FK_ShipsRemainingLineItems_BattleEvent" FromRole="BattleEvent" ToRole="ShipsRemainingLineItems" />
+  </EntityType>
+  <EntityType Name="CriticalError">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="timestamp" Type="DateTime" Precision="3" />
+    <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EntityValidationErrors" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HelpLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="InnerException" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TargetSite" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="FleetBuilding">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idPlayer" Type="Int32" Nullable="false" />
+    <Property Name="shipID" Type="Int32" Nullable="false" />
+    <Property Name="qty" Type="Int32" Nullable="false" />
+    <Property Name="completitionTimeReaminingSeconds" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Player" Relationship="Self.FK_fleetBuilding_Player" FromRole="FleetBuilding" ToRole="Player" />
+    <NavigationProperty Name="Ship" Relationship="Self.FK_fleetBuilding_Ships" FromRole="FleetBuilding" ToRole="Ships" />
+  </EntityType>
+  <EntityType Name="Fleet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="playerID" Type="Int32" Nullable="false" />
+    <Property Name="shipID" Type="Int32" Nullable="false" />
+    <Property Name="qty" Type="Int32" Nullable="false" />
+    <Property Name="showOnWorldMap" Type="Boolean" Nullable="false" />
+    <Property Name="mapX" Type="Int32" Nullable="false" />
+    <Property Name="mapY" Type="Int32" Nullable="false" />
+    <Property Name="sectorID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Player" Relationship="Self.FK_Fleets_Player" FromRole="Fleets" ToRole="Player" />
+    <NavigationProperty Name="Sector" Relationship="Self.FK_Fleets_Sector" FromRole="Fleets" ToRole="Sector" />
+    <NavigationProperty Name="Ship" Relationship="Self.FK_Fleets_Ships" FromRole="Fleets" ToRole="Ships" />
+  </EntityType>
+  <EntityType Name="Inventory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="itemID" Type="Int32" />
+    <Property Name="qty" Type="Int32" />
+    <Property Name="playerID" Type="Int32" />
+    <NavigationProperty Name="Item" Relationship="Self.FK_Inventory_Item" FromRole="Inventory" ToRole="Item" />
+    <NavigationProperty Name="Player" Relationship="Self.FK_Inventory_Player" FromRole="Inventory" ToRole="Player" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="icon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AllianceLedgers" Relationship="Self.FK_AllianceLedger_Item" FromRole="Item" ToRole="AllianceLedger" />
+    <NavigationProperty Name="Inventories" Relationship="Self.FK_Inventory_Item" FromRole="Item" ToRole="Inventory" />
+    <NavigationProperty Name="AllianceStores" Relationship="Self.FK_AllianceStore_Item" FromRole="Item" ToRole="AllianceStore" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" />
+    <Property Name="playerID" Type="Int32" Nullable="false" />
+    <Property Name="action" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="isCritical" Type="Boolean" Nullable="false" />
+    <Property Name="isWarning" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="idPlayer" Type="Int32" Nullable="false" />
+    <Property Name="success" Type="Boolean" Nullable="false" />
+    <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ip" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="userAgent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="screenWidth" Type="Int32" Nullable="false" />
+    <Property Name="screenHeight" Type="Int32" Nullable="false" />
+    <Property Name="isMobile" Type="Boolean" Nullable="false" />
+    <Property Name="isTablet" Type="Boolean" Nullable="false" />
+    <Property Name="isDesktop" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Player" Relationship="Self.FK_Login_Player" FromRole="Login" ToRole="Player" />
+  </EntityType>
+  <EntityType Name="Node">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mapX" Type="Int32" Nullable="false" />
+    <Property Name="mapY" Type="Int32" Nullable="false" />
+    <Property Name="sectorID" Type="Int32" Nullable="false" />
+    <Property Name="resourceTypeID" Type="Int32" Nullable="false" />
+    <Property Name="unitsReamining" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ResourceType" Relationship="Self.FK_Nodes_ResourceTypes" FromRole="Nodes" ToRole="ResourceTypes" />
+    <NavigationProperty Name="Sector" Relationship="Self.FK_Nodes_Sector1" FromRole="Nodes" ToRole="Sector" />
+  </EntityType>
+  <EntityType Name="Outpost">
+    <Key>
+      <PropertyRef Name="IdPlayer" />
+    </Key>
+    <Property Name="IdPlayer" Type="Int32" Nullable="false" />
+    <Property Name="mapX" Type="Int32" Nullable="false" />
+    <Property Name="mapY" Type="Int32" Nullable="false" />
+    <Property Name="power" Type="Int32" Nullable="false" />
+    <Property Name="sectorID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Player" Relationship="Self.FK_Outpost_Player" FromRole="Outpost" ToRole="Player" />
+    <NavigationProperty Name="Sector" Relationship="Self.FK_Outpost_Sector" FromRole="Outpost" ToRole="Sector" />
+    <NavigationProperty Name="Stations" Relationship="Self.FK_Stations_Outpost" FromRole="Outpost" ToRole="Station" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="characterName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="firstName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="lastName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="passwordResetHash" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="passwordHashExpiration" Type="DateTime" Precision="3" />
+    <Property Name="facebookToken" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="googleToken" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="createdAtTimestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updatedAtTimestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="lastLoginTimestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="enabled" Type="Boolean" />
+    <Property Name="allianceID" Type="Int32" Nullable="false" />
+    <Property Name="sourceClickID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="sourceSub1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="sourceSub2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="sourceSub3" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="sourceSub4" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="sourceSub5" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="firstLoginComplete" Type="Boolean" Nullable="false" />
+    <Property Name="sectorID" Type="Int32" Nullable="false" />
+    <Property Name="canLoginDuringMaintnence" Type="Boolean" Nullable="false" />
+    <Property Name="CLSID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AllianceLedgers" Relationship="Self.FK_AllianceLedger_Player" FromRole="Player" ToRole="AllianceLedger" />
+    <NavigationProperty Name="AllianceMembers" Relationship="Self.FK_AllianceMember_Player" FromRole="Player" ToRole="AllianceMember" />
+    <NavigationProperty Name="FleetBuildings" Relationship="Self.FK_fleetBuilding_Player" FromRole="Player" ToRole="FleetBuilding" />
+    <NavigationProperty Name="Fleets" Relationship="Self.FK_Fleets_Player" FromRole="Player" ToRole="Fleets" />
+    <NavigationProperty Name="Inventories" Relationship="Self.FK_Inventory_Player" FromRole="Player" ToRole="Inventory" />
+    <NavigationProperty Name="Logins" Relationship="Self.FK_Login_Player" FromRole="Player" ToRole="Login" />
+    <NavigationProperty Name="Outpost" Relationship="Self.FK_Outpost_Player" FromRole="Player" ToRole="Outpost" />
+    <NavigationProperty Name="Sector" Relationship="Self.FK_Player_Sector" FromRole="Player" ToRole="Sector" />
+    <NavigationProperty Name="PlayerBuffs" Relationship="Self.FK_PlayerBuff_Player" FromRole="Player" ToRole="PlayerBuff" />
+    <NavigationProperty Name="PlayerResources" Relationship="Self.FK_PlayerResources_Player" FromRole="Player" ToRole="PlayerResources" />
+    <NavigationProperty Name="PlayerSetting" Relationship="Self.FK_PlayerSettings_Player" FromRole="Player" ToRole="PlayerSettings" />
+    <NavigationProperty Name="ResearchCompleteds" Relationship="Self.FK_ResearchCompleted_Player" FromRole="Player" ToRole="ResearchCompleted" />
+  </EntityType>
+  <EntityType Name="PlayerBuff">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdPlayer" Type="Int32" Nullable="false" />
+    <Property Name="statID" Type="Int32" Nullable="false" />
+    <Property Name="value" Type="Int32" Nullable="false" />
+    <Property Name="countdownRemaining" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Player" Relationship="Self.FK_PlayerBuff_Player" FromRole="PlayerBuff" ToRole="Player" />
+    <NavigationProperty Name="StatType" Relationship="Self.FK_PlayerBuff_PlayerBuff" FromRole="PlayerBuff" ToRole="StatTypes" />
+  </EntityType>
+  <EntityType Name="PlayerResource">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="resourceTypeID" Type="Int32" Nullable="false" />
+    <Property Name="qty" Type="Int32" Nullable="false" />
+    <Property Name="playerID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Player" Relationship="Self.FK_PlayerResources_Player" FromRole="PlayerResources" ToRole="Player" />
+    <NavigationProperty Name="ResourceType" Relationship="Self.FK_PlayerResources_ResourceTypes" FromRole="PlayerResources" ToRole="ResourceTypes" />
+  </EntityType>
+  <EntityType Name="PlayerSetting">
+    <Key>
+      <PropertyRef Name="idPlayer" />
+    </Key>
+    <Property Name="idPlayer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sendEmails" Type="Boolean" Nullable="false" />
+    <Property Name="sendPush" Type="Boolean" Nullable="false" />
+    <Property Name="sendBrowserPush" Type="Boolean" Nullable="false" />
+    <Property Name="alertOnBuildComplete" Type="Boolean" Nullable="false" />
+    <Property Name="alertOnBeingAttacked" Type="Boolean" Nullable="false" />
+    <Property Name="alertOnAttack" Type="Boolean" Nullable="false" />
+    <Property Name="musicEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="soundEffectsEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="tutorialEnabled" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Player" Relationship="Self.FK_PlayerSettings_Player" FromRole="PlayerSettings" ToRole="Player" />
+  </EntityType>
+  <EntityType Name="ResearchCompleted">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="playerID" Type="Int32" Nullable="false" />
+    <Property Name="researchTypeID" Type="Int32" Nullable="false" />
+    <Property Name="level" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Player" Relationship="Self.FK_ResearchCompleted_Player" FromRole="ResearchCompleted" ToRole="Player" />
+    <NavigationProperty Name="ResearchType" Relationship="Self.FK_ResearchCompleted_ResearchTypes" FromRole="ResearchCompleted" ToRole="ResearchTypes" />
+  </EntityType>
+  <EntityType Name="ResearchCost">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="researchTypeID" Type="Int32" Nullable="false" />
+    <Property Name="resourceID1" Type="Int32" Nullable="false" />
+    <Property Name="resourceID2" Type="Int32" Nullable="false" />
+    <Property Name="resourceID3" Type="Int32" Nullable="false" />
+    <Property Name="resourceID4" Type="Int32" Nullable="false" />
+    <Property Name="resourceID5" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty1" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty2" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty3" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty4" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty5" Type="Int32" Nullable="false" />
+    <Property Name="costModifierPerLevel" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="maxLevel" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ResearchType" Relationship="Self.FK_ResearchCosts_ResearchTypes" FromRole="ResearchCosts" ToRole="ResearchTypes" />
+  </EntityType>
+  <EntityType Name="ResearchTree">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="researchTreeParentID" Type="Int32" Nullable="false" />
+    <Property Name="researchTreeChild1ID" Type="Int32" Nullable="false" />
+    <Property Name="researchTreeChild2ID" Type="Int32" Nullable="false" />
+    <Property Name="researchTreeChild3ID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ResearchType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="requiresStationID" Type="Int32" Nullable="false" />
+    <Property Name="stationLevelRequired" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ResearchCompleteds" Relationship="Self.FK_ResearchCompleted_ResearchTypes" FromRole="ResearchTypes" ToRole="ResearchCompleted" />
+    <NavigationProperty Name="ResearchCosts" Relationship="Self.FK_ResearchCosts_ResearchTypes" FromRole="ResearchTypes" ToRole="ResearchCosts" />
+  </EntityType>
+  <EntityType Name="ResourceType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="Int32" Nullable="false" />
+    <Property Name="icon" Type="Int32" Nullable="false" />
+    <Property Name="cargoSize" Type="Int32" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Nodes" Relationship="Self.FK_Nodes_ResourceTypes" FromRole="ResourceTypes" ToRole="Nodes" />
+    <NavigationProperty Name="PlayerResources" Relationship="Self.FK_PlayerResources_ResourceTypes" FromRole="ResourceTypes" ToRole="PlayerResources" />
+  </EntityType>
+  <EntityType Name="Sector">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="allowsNewPlayers" Type="Boolean" Nullable="false" />
+    <Property Name="visibleToPlayers" Type="Boolean" Nullable="false" />
+    <Property Name="enabled" Type="Boolean" Nullable="false" />
+    <Property Name="createdTimestamp" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="allowPayToWinStore" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Fleets" Relationship="Self.FK_Fleets_Sector" FromRole="Sector" ToRole="Fleets" />
+    <NavigationProperty Name="Nodes" Relationship="Self.FK_Nodes_Sector1" FromRole="Sector" ToRole="Nodes" />
+    <NavigationProperty Name="Outposts" Relationship="Self.FK_Outpost_Sector" FromRole="Sector" ToRole="Outpost" />
+    <NavigationProperty Name="Players" Relationship="Self.FK_Player_Sector" FromRole="Sector" ToRole="Player" />
+    <NavigationProperty Name="SectorMaps" Relationship="Self.FK_SectorMap_Sector" FromRole="Sector" ToRole="SectorMap" />
+  </EntityType>
+  <EntityType Name="SectorMap">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="x" Type="Int32" />
+    <Property Name="y" Type="Int32" />
+    <Property Name="objectType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="objectID" Type="Int32" />
+    <Property Name="sectorID" Type="Int32" />
+    <NavigationProperty Name="Sector" Relationship="Self.FK_SectorMap_Sector" FromRole="SectorMap" ToRole="Sector" />
+  </EntityType>
+  <EntityType Name="ShipCost">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="shipTypeID" Type="Int32" />
+    <Property Name="resourceID1" Type="Int32" Nullable="false" />
+    <Property Name="resourceID2" Type="Int32" Nullable="false" />
+    <Property Name="resourceID3" Type="Int32" Nullable="false" />
+    <Property Name="resourceID4" Type="Int32" Nullable="false" />
+    <Property Name="resourceID5" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty1" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty2" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty3" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty4" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty5" Type="Int32" Nullable="false" />
+    <Property Name="openToPlayers" Type="Boolean" Nullable="false" />
+    <Property Name="requiredStationType" Type="Int32" Nullable="false" />
+    <Property Name="requiredStationLevel" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Ship" Relationship="Self.FK_ShipCost_Ships" FromRole="ShipCost" ToRole="Ships" />
+  </EntityType>
+  <EntityType Name="Ship">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="Int32" Nullable="false" />
+    <Property Name="icon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="worldMapAnimationImage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="FleetBuildings" Relationship="Self.FK_fleetBuilding_Ships" FromRole="Ships" ToRole="FleetBuilding" />
+    <NavigationProperty Name="Fleets" Relationship="Self.FK_Fleets_Ships" FromRole="Ships" ToRole="Fleets" />
+    <NavigationProperty Name="ShipCosts" Relationship="Self.FK_ShipCost_Ships" FromRole="Ships" ToRole="ShipCost" />
+    <NavigationProperty Name="ShipsLostLineItems" Relationship="Self.FK_ShipsLostLineItems_Ships" FromRole="Ships" ToRole="ShipsLostLineItems" />
+    <NavigationProperty Name="ShipsRemainingLineItems" Relationship="Self.FK_ShipsRemainingLineItems_Ships" FromRole="Ships" ToRole="ShipsRemainingLineItems" />
+  </EntityType>
+  <EntityType Name="ShipsLostLineItem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="battleID" Type="Int32" Nullable="false" />
+    <Property Name="playerID" Type="Int32" Nullable="false" />
+    <Property Name="shipID" Type="Int32" Nullable="false" />
+    <Property Name="qty" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BattleEvent" Relationship="Self.FK_ShipsLostLineItems_BattleEvent" FromRole="ShipsLostLineItems" ToRole="BattleEvent" />
+    <NavigationProperty Name="Ship" Relationship="Self.FK_ShipsLostLineItems_Ships" FromRole="ShipsLostLineItems" ToRole="Ships" />
+  </EntityType>
+  <EntityType Name="ShipsRemainingLineItem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="battleID" Type="Int32" Nullable="false" />
+    <Property Name="playerID" Type="Int32" Nullable="false" />
+    <Property Name="shipID" Type="Int32" Nullable="false" />
+    <Property Name="qty" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BattleEvent" Relationship="Self.FK_ShipsRemainingLineItems_BattleEvent" FromRole="ShipsRemainingLineItems" ToRole="BattleEvent" />
+    <NavigationProperty Name="Ship" Relationship="Self.FK_ShipsRemainingLineItems_Ships" FromRole="ShipsRemainingLineItems" ToRole="Ships" />
+  </EntityType>
+  <EntityType Name="Station">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="outpostID" Type="Int32" Nullable="false" />
+    <Property Name="stationTypeID" Type="Int32" Nullable="false" />
+    <Property Name="level" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Outpost" Relationship="Self.FK_Stations_Outpost" FromRole="Station" ToRole="Outpost" />
+    <NavigationProperty Name="StationType" Relationship="Self.FK_Stations_StationTypes" FromRole="Station" ToRole="StationTypes" />
+  </EntityType>
+  <EntityType Name="StationType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="icon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Stations" Relationship="Self.FK_Stations_StationTypes" FromRole="StationTypes" ToRole="Station" />
+    <NavigationProperty Name="StationUpgradesCosts" Relationship="Self.FK_StationUpgradesCost_StationTypes" FromRole="StationTypes" ToRole="StationUpgradesCost" />
+  </EntityType>
+  <EntityType Name="StationUpgradesCost">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="stationTypeID" Type="Int32" Nullable="false" />
+    <Property Name="level" Type="Int32" Nullable="false" />
+    <Property Name="resourceID1" Type="Int32" Nullable="false" />
+    <Property Name="resourceID2" Type="Int32" Nullable="false" />
+    <Property Name="resourceID3" Type="Int32" Nullable="false" />
+    <Property Name="resourceID4" Type="Int32" Nullable="false" />
+    <Property Name="resourceID5" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty1" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty2" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty3" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty4" Type="Int32" Nullable="false" />
+    <Property Name="resourceQty5" Type="Int32" Nullable="false" />
+    <Property Name="openToPlayers" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="StationType" Relationship="Self.FK_StationUpgradesCost_StationTypes" FromRole="StationUpgradesCost" ToRole="StationTypes" />
+  </EntityType>
+  <EntityType Name="StatType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="visibleToPlayer" Type="Boolean" Nullable="false" />
+    <Property Name="forFleet" Type="Boolean" Nullable="false" />
+    <Property Name="forOutpost" Type="Boolean" Nullable="false" />
+    <Property Name="typeID" Type="Int32" />
+    <NavigationProperty Name="PlayerBuffs" Relationship="Self.FK_PlayerBuff_PlayerBuff" FromRole="StatTypes" ToRole="PlayerBuff" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="AllianceStore">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="itemID" />
+      <PropertyRef Name="qty" />
+      <PropertyRef Name="allianceID" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="itemID" Type="Int32" Nullable="false" />
+    <Property Name="qty" Type="Int32" Nullable="false" />
+    <Property Name="allianceID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Alliance" Relationship="Self.FK_AllianceStore_Alliance" FromRole="AllianceStore" ToRole="Alliance" />
+    <NavigationProperty Name="Item" Relationship="Self.FK_AllianceStore_Item" FromRole="AllianceStore" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="BannedIP">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="ip" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ip" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BannedUserAgent">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="userAgent" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userAgent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GameSetting">
+    <Key>
+      <PropertyRef Name="hashExpirationHours" />
+      <PropertyRef Name="baseMovementSpeed" />
+      <PropertyRef Name="alllowLogins" />
+      <PropertyRef Name="maintnenceMode" />
+    </Key>
+    <Property Name="hashExpirationHours" Type="Int32" Nullable="false" />
+    <Property Name="baseMovementSpeed" Type="Decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="alllowLogins" Type="Boolean" Nullable="false" />
+    <Property Name="maintnenceMode" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="player1ID" />
+      <PropertyRef Name="player2ID" />
+      <PropertyRef Name="allianceID" />
+      <PropertyRef Name="contents" />
+      <PropertyRef Name="isPlayerToPlayer" />
+      <PropertyRef Name="isToClan" />
+      <PropertyRef Name="timestamp" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="player1ID" Type="Int32" Nullable="false" />
+    <Property Name="player2ID" Type="Int32" Nullable="false" />
+    <Property Name="allianceID" Type="Int32" Nullable="false" />
+    <Property Name="contents" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="isPlayerToPlayer" Type="Boolean" Nullable="false" />
+    <Property Name="isToClan" Type="Boolean" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="isRead" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK_AllianceLedger_Alliance">
+    <End Role="Alliance" Type="Self.Alliance" Multiplicity="1" />
+    <End Role="AllianceLedger" Type="Self.AllianceLedger" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alliance">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AllianceLedger">
+        <PropertyRef Name="allianceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AllianceMember_Alliance">
+    <End Role="Alliance" Type="Self.Alliance" Multiplicity="1" />
+    <End Role="AllianceMember" Type="Self.AllianceMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alliance">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AllianceMember">
+        <PropertyRef Name="idAlliance" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AllianceStore_Alliance">
+    <End Role="Alliance" Type="Self.Alliance" Multiplicity="1" />
+    <End Role="AllianceStore" Type="Self.AllianceStore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alliance">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AllianceStore">
+        <PropertyRef Name="allianceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AllianceWallet_Alliance">
+    <End Role="Alliance" Type="Self.Alliance" Multiplicity="1" />
+    <End Role="AllianceWallet" Type="Self.AllianceWallet" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Alliance">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AllianceWallet">
+        <PropertyRef Name="idAlliance" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AllianceLedger_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="AllianceLedger" Type="Self.AllianceLedger" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AllianceLedger">
+        <PropertyRef Name="itemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AllianceLedger_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="AllianceLedger" Type="Self.AllianceLedger" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AllianceLedger">
+        <PropertyRef Name="playerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AllianceMember_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="AllianceMember" Type="Self.AllianceMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AllianceMember">
+        <PropertyRef Name="idPlayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipsLostLineItems_BattleEvent">
+    <End Role="BattleEvent" Type="Self.BattleEvent" Multiplicity="1" />
+    <End Role="ShipsLostLineItems" Type="Self.ShipsLostLineItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BattleEvent">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ShipsLostLineItems">
+        <PropertyRef Name="battleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipsRemainingLineItems_BattleEvent">
+    <End Role="BattleEvent" Type="Self.BattleEvent" Multiplicity="1" />
+    <End Role="ShipsRemainingLineItems" Type="Self.ShipsRemainingLineItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BattleEvent">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ShipsRemainingLineItems">
+        <PropertyRef Name="battleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fleetBuilding_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="FleetBuilding" Type="Self.FleetBuilding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FleetBuilding">
+        <PropertyRef Name="idPlayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fleetBuilding_Ships">
+    <End Role="Ships" Type="Self.Ship" Multiplicity="1" />
+    <End Role="FleetBuilding" Type="Self.FleetBuilding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ships">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FleetBuilding">
+        <PropertyRef Name="shipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fleets_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="Fleets" Type="Self.Fleet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Fleets">
+        <PropertyRef Name="playerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fleets_Sector">
+    <End Role="Sector" Type="Self.Sector" Multiplicity="1" />
+    <End Role="Fleets" Type="Self.Fleet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sector">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Fleets">
+        <PropertyRef Name="sectorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fleets_Ships">
+    <End Role="Ships" Type="Self.Ship" Multiplicity="1" />
+    <End Role="Fleets" Type="Self.Fleet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ships">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Fleets">
+        <PropertyRef Name="shipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inventory_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+    <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="itemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inventory_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
+    <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="playerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AllianceStore_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="AllianceStore" Type="Self.AllianceStore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AllianceStore">
+        <PropertyRef Name="itemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Login_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="Login" Type="Self.Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="idPlayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nodes_ResourceTypes">
+    <End Role="ResourceTypes" Type="Self.ResourceType" Multiplicity="1" />
+    <End Role="Nodes" Type="Self.Node" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResourceTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Nodes">
+        <PropertyRef Name="resourceTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nodes_Sector1">
+    <End Role="Sector" Type="Self.Sector" Multiplicity="1" />
+    <End Role="Nodes" Type="Self.Node" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sector">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Nodes">
+        <PropertyRef Name="sectorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Outpost_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="Outpost" Type="Self.Outpost" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Outpost">
+        <PropertyRef Name="IdPlayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Outpost_Sector">
+    <End Role="Sector" Type="Self.Sector" Multiplicity="1" />
+    <End Role="Outpost" Type="Self.Outpost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sector">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Outpost">
+        <PropertyRef Name="sectorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stations_Outpost">
+    <End Role="Outpost" Type="Self.Outpost" Multiplicity="1" />
+    <End Role="Station" Type="Self.Station" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Outpost">
+        <PropertyRef Name="IdPlayer" />
+      </Principal>
+      <Dependent Role="Station">
+        <PropertyRef Name="outpostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Player_Sector">
+    <End Role="Sector" Type="Self.Sector" Multiplicity="1" />
+    <End Role="Player" Type="Self.Player" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sector">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Player">
+        <PropertyRef Name="sectorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerBuff_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="PlayerBuff" Type="Self.PlayerBuff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PlayerBuff">
+        <PropertyRef Name="IdPlayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerResources_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="PlayerResources" Type="Self.PlayerResource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PlayerResources">
+        <PropertyRef Name="playerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerSettings_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="PlayerSettings" Type="Self.PlayerSetting" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PlayerSettings">
+        <PropertyRef Name="idPlayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResearchCompleted_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="ResearchCompleted" Type="Self.ResearchCompleted" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ResearchCompleted">
+        <PropertyRef Name="playerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerBuff_PlayerBuff">
+    <End Role="StatTypes" Type="Self.StatType" Multiplicity="1" />
+    <End Role="PlayerBuff" Type="Self.PlayerBuff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PlayerBuff">
+        <PropertyRef Name="statID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerResources_ResourceTypes">
+    <End Role="ResourceTypes" Type="Self.ResourceType" Multiplicity="1" />
+    <End Role="PlayerResources" Type="Self.PlayerResource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResourceTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PlayerResources">
+        <PropertyRef Name="resourceTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResearchCompleted_ResearchTypes">
+    <End Role="ResearchTypes" Type="Self.ResearchType" Multiplicity="1" />
+    <End Role="ResearchCompleted" Type="Self.ResearchCompleted" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResearchTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ResearchCompleted">
+        <PropertyRef Name="researchTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResearchCosts_ResearchTypes">
+    <End Role="ResearchTypes" Type="Self.ResearchType" Multiplicity="1" />
+    <End Role="ResearchCosts" Type="Self.ResearchCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResearchTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ResearchCosts">
+        <PropertyRef Name="researchTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SectorMap_Sector">
+    <End Role="Sector" Type="Self.Sector" Multiplicity="0..1" />
+    <End Role="SectorMap" Type="Self.SectorMap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sector">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SectorMap">
+        <PropertyRef Name="sectorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipCost_Ships">
+    <End Role="Ships" Type="Self.Ship" Multiplicity="0..1" />
+    <End Role="ShipCost" Type="Self.ShipCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ships">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ShipCost">
+        <PropertyRef Name="shipTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipsLostLineItems_Ships">
+    <End Role="Ships" Type="Self.Ship" Multiplicity="1" />
+    <End Role="ShipsLostLineItems" Type="Self.ShipsLostLineItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ships">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ShipsLostLineItems">
+        <PropertyRef Name="shipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipsRemainingLineItems_Ships">
+    <End Role="Ships" Type="Self.Ship" Multiplicity="1" />
+    <End Role="ShipsRemainingLineItems" Type="Self.ShipsRemainingLineItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ships">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ShipsRemainingLineItems">
+        <PropertyRef Name="shipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stations_StationTypes">
+    <End Role="StationTypes" Type="Self.StationType" Multiplicity="1" />
+    <End Role="Station" Type="Self.Station" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StationTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Station">
+        <PropertyRef Name="stationTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StationUpgradesCost_StationTypes">
+    <End Role="StationTypes" Type="Self.StationType" Multiplicity="1" />
+    <End Role="StationUpgradesCost" Type="Self.StationUpgradesCost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StationTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="StationUpgradesCost">
+        <PropertyRef Name="stationTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="outpostwarsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alliances" EntityType="Self.Alliance" />
+    <EntitySet Name="AllianceLedgers" EntityType="Self.AllianceLedger" />
+    <EntitySet Name="AllianceMembers" EntityType="Self.AllianceMember" />
+    <EntitySet Name="AllianceWallets" EntityType="Self.AllianceWallet" />
+    <EntitySet Name="BattleEvents" EntityType="Self.BattleEvent" />
+    <EntitySet Name="CriticalErrors" EntityType="Self.CriticalError" />
+    <EntitySet Name="FleetBuildings" EntityType="Self.FleetBuilding" />
+    <EntitySet Name="Fleets" EntityType="Self.Fleet" />
+    <EntitySet Name="Inventories" EntityType="Self.Inventory" />
+    <EntitySet Name="Items" EntityType="Self.Item" />
+    <EntitySet Name="Logs" EntityType="Self.Log" />
+    <EntitySet Name="Logins" EntityType="Self.Login" />
+    <EntitySet Name="Nodes" EntityType="Self.Node" />
+    <EntitySet Name="Outposts" EntityType="Self.Outpost" />
+    <EntitySet Name="Players" EntityType="Self.Player" />
+    <EntitySet Name="PlayerBuffs" EntityType="Self.PlayerBuff" />
+    <EntitySet Name="PlayerResources" EntityType="Self.PlayerResource" />
+    <EntitySet Name="PlayerSettings" EntityType="Self.PlayerSetting" />
+    <EntitySet Name="ResearchCompleteds" EntityType="Self.ResearchCompleted" />
+    <EntitySet Name="ResearchCosts" EntityType="Self.ResearchCost" />
+    <EntitySet Name="ResearchTrees" EntityType="Self.ResearchTree" />
+    <EntitySet Name="ResearchTypes" EntityType="Self.ResearchType" />
+    <EntitySet Name="ResourceTypes" EntityType="Self.ResourceType" />
+    <EntitySet Name="Sectors" EntityType="Self.Sector" />
+    <EntitySet Name="SectorMaps" EntityType="Self.SectorMap" />
+    <EntitySet Name="ShipCosts" EntityType="Self.ShipCost" />
+    <EntitySet Name="Ships" EntityType="Self.Ship" />
+    <EntitySet Name="ShipsLostLineItems" EntityType="Self.ShipsLostLineItem" />
+    <EntitySet Name="ShipsRemainingLineItems" EntityType="Self.ShipsRemainingLineItem" />
+    <EntitySet Name="Stations" EntityType="Self.Station" />
+    <EntitySet Name="StationTypes" EntityType="Self.StationType" />
+    <EntitySet Name="StationUpgradesCosts" EntityType="Self.StationUpgradesCost" />
+    <EntitySet Name="StatTypes" EntityType="Self.StatType" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="AllianceStores" EntityType="Self.AllianceStore" />
+    <EntitySet Name="BannedIPs" EntityType="Self.BannedIP" />
+    <EntitySet Name="BannedUserAgents" EntityType="Self.BannedUserAgent" />
+    <EntitySet Name="GameSettings" EntityType="Self.GameSetting" />
+    <EntitySet Name="Messages" EntityType="Self.Message" />
+    <AssociationSet Name="FK_AllianceLedger_Alliance" Association="Self.FK_AllianceLedger_Alliance">
+      <End Role="Alliance" EntitySet="Alliances" />
+      <End Role="AllianceLedger" EntitySet="AllianceLedgers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AllianceMember_Alliance" Association="Self.FK_AllianceMember_Alliance">
+      <End Role="Alliance" EntitySet="Alliances" />
+      <End Role="AllianceMember" EntitySet="AllianceMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AllianceStore_Alliance" Association="Self.FK_AllianceStore_Alliance">
+      <End Role="Alliance" EntitySet="Alliances" />
+      <End Role="AllianceStore" EntitySet="AllianceStores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AllianceWallet_Alliance" Association="Self.FK_AllianceWallet_Alliance">
+      <End Role="Alliance" EntitySet="Alliances" />
+      <End Role="AllianceWallet" EntitySet="AllianceWallets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AllianceLedger_Item" Association="Self.FK_AllianceLedger_Item">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="AllianceLedger" EntitySet="AllianceLedgers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AllianceLedger_Player" Association="Self.FK_AllianceLedger_Player">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="AllianceLedger" EntitySet="AllianceLedgers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AllianceMember_Player" Association="Self.FK_AllianceMember_Player">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="AllianceMember" EntitySet="AllianceMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipsLostLineItems_BattleEvent" Association="Self.FK_ShipsLostLineItems_BattleEvent">
+      <End Role="BattleEvent" EntitySet="BattleEvents" />
+      <End Role="ShipsLostLineItems" EntitySet="ShipsLostLineItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipsRemainingLineItems_BattleEvent" Association="Self.FK_ShipsRemainingLineItems_BattleEvent">
+      <End Role="BattleEvent" EntitySet="BattleEvents" />
+      <End Role="ShipsRemainingLineItems" EntitySet="ShipsRemainingLineItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fleetBuilding_Player" Association="Self.FK_fleetBuilding_Player">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="FleetBuilding" EntitySet="FleetBuildings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fleetBuilding_Ships" Association="Self.FK_fleetBuilding_Ships">
+      <End Role="Ships" EntitySet="Ships" />
+      <End Role="FleetBuilding" EntitySet="FleetBuildings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fleets_Player" Association="Self.FK_Fleets_Player">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="Fleets" EntitySet="Fleets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fleets_Sector" Association="Self.FK_Fleets_Sector">
+      <End Role="Sector" EntitySet="Sectors" />
+      <End Role="Fleets" EntitySet="Fleets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fleets_Ships" Association="Self.FK_Fleets_Ships">
+      <End Role="Ships" EntitySet="Ships" />
+      <End Role="Fleets" EntitySet="Fleets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inventory_Item" Association="Self.FK_Inventory_Item">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Inventory" EntitySet="Inventories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inventory_Player" Association="Self.FK_Inventory_Player">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="Inventory" EntitySet="Inventories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AllianceStore_Item" Association="Self.FK_AllianceStore_Item">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="AllianceStore" EntitySet="AllianceStores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Login_Player" Association="Self.FK_Login_Player">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="Login" EntitySet="Logins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nodes_ResourceTypes" Association="Self.FK_Nodes_ResourceTypes">
+      <End Role="ResourceTypes" EntitySet="ResourceTypes" />
+      <End Role="Nodes" EntitySet="Nodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nodes_Sector1" Association="Self.FK_Nodes_Sector1">
+      <End Role="Sector" EntitySet="Sectors" />
+      <End Role="Nodes" EntitySet="Nodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Outpost_Player" Association="Self.FK_Outpost_Player">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="Outpost" EntitySet="Outposts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Outpost_Sector" Association="Self.FK_Outpost_Sector">
+      <End Role="Sector" EntitySet="Sectors" />
+      <End Role="Outpost" EntitySet="Outposts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stations_Outpost" Association="Self.FK_Stations_Outpost">
+      <End Role="Outpost" EntitySet="Outposts" />
+      <End Role="Station" EntitySet="Stations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Player_Sector" Association="Self.FK_Player_Sector">
+      <End Role="Sector" EntitySet="Sectors" />
+      <End Role="Player" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerBuff_Player" Association="Self.FK_PlayerBuff_Player">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="PlayerBuff" EntitySet="PlayerBuffs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerResources_Player" Association="Self.FK_PlayerResources_Player">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="PlayerResources" EntitySet="PlayerResources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerSettings_Player" Association="Self.FK_PlayerSettings_Player">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="PlayerSettings" EntitySet="PlayerSettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResearchCompleted_Player" Association="Self.FK_ResearchCompleted_Player">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="ResearchCompleted" EntitySet="ResearchCompleteds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerBuff_PlayerBuff" Association="Self.FK_PlayerBuff_PlayerBuff">
+      <End Role="StatTypes" EntitySet="StatTypes" />
+      <End Role="PlayerBuff" EntitySet="PlayerBuffs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerResources_ResourceTypes" Association="Self.FK_PlayerResources_ResourceTypes">
+      <End Role="ResourceTypes" EntitySet="ResourceTypes" />
+      <End Role="PlayerResources" EntitySet="PlayerResources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResearchCompleted_ResearchTypes" Association="Self.FK_ResearchCompleted_ResearchTypes">
+      <End Role="ResearchTypes" EntitySet="ResearchTypes" />
+      <End Role="ResearchCompleted" EntitySet="ResearchCompleteds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResearchCosts_ResearchTypes" Association="Self.FK_ResearchCosts_ResearchTypes">
+      <End Role="ResearchTypes" EntitySet="ResearchTypes" />
+      <End Role="ResearchCosts" EntitySet="ResearchCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SectorMap_Sector" Association="Self.FK_SectorMap_Sector">
+      <End Role="Sector" EntitySet="Sectors" />
+      <End Role="SectorMap" EntitySet="SectorMaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipCost_Ships" Association="Self.FK_ShipCost_Ships">
+      <End Role="Ships" EntitySet="Ships" />
+      <End Role="ShipCost" EntitySet="ShipCosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipsLostLineItems_Ships" Association="Self.FK_ShipsLostLineItems_Ships">
+      <End Role="Ships" EntitySet="Ships" />
+      <End Role="ShipsLostLineItems" EntitySet="ShipsLostLineItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipsRemainingLineItems_Ships" Association="Self.FK_ShipsRemainingLineItems_Ships">
+      <End Role="Ships" EntitySet="Ships" />
+      <End Role="ShipsRemainingLineItems" EntitySet="ShipsRemainingLineItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stations_StationTypes" Association="Self.FK_Stations_StationTypes">
+      <End Role="StationTypes" EntitySet="StationTypes" />
+      <End Role="Station" EntitySet="Stations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StationUpgradesCost_StationTypes" Association="Self.FK_StationUpgradesCost_StationTypes">
+      <End Role="StationTypes" EntitySet="StationTypes" />
+      <End Role="StationUpgradesCost" EntitySet="StationUpgradesCosts" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(outpostwarsModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(outpostwarsModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>
